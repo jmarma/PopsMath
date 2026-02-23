@@ -1,0 +1,207 @@
+{
+  "test_info": {
+    "test_number": 2,
+    "title": "Proportional Relationships & Circles - Test 2",
+    "description": "A comprehensive review test covering all unit topics with a mix of problem types including word problems, calculations, and conceptual questions.",
+    "total_questions": 20,
+    "time_suggestion": "45-60 minutes",
+    "difficulty_breakdown": {
+      "easy": 6,
+      "medium": 9,
+      "hard": 5
+    },
+    "encouragement": "Take a deep breath - you've prepared for this! Read each question carefully, and remember that showing your work helps you catch mistakes. You can do it! 🌟"
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "difficulty": "easy",
+      "section_covered": "What Are Proportional Relationships?",
+      "question": "Which statement describes a proportional relationship?",
+      "options": ["A) As x doubles, y doubles", "B) As x increases by 2, y increases by 2", "C) x and y are both even numbers", "D) x is always greater than y"],
+      "correct_answer": "A",
+      "explanation": "In a proportional relationship, when one quantity doubles, the other doubles too. When one triples, the other triples. They scale together!"
+    },
+    {
+      "question_number": 2,
+      "difficulty": "easy",
+      "section_covered": "Circles: Circumference",
+      "question": "The circumference formula C = πd means:",
+      "options": ["A) Circumference equals diameter divided by pi", "B) Circumference equals pi times diameter", "C) Circumference equals pi plus diameter", "D) Circumference equals pi squared"],
+      "correct_answer": "B",
+      "explanation": "C = πd means circumference = π × diameter. The circumference is about 3.14 times the diameter."
+    },
+    {
+      "question_number": 3,
+      "difficulty": "easy",
+      "section_covered": "Circles: Area",
+      "question": "In the area formula A = πr², the r² means:",
+      "options": ["A) r divided by 2", "B) r times 2", "C) r times r (radius squared)", "D) 2 times r"],
+      "correct_answer": "C",
+      "explanation": "r² (r squared) means r × r. For example, if r = 5, then r² = 5 × 5 = 25."
+    },
+    {
+      "question_number": 4,
+      "difficulty": "easy",
+      "section_covered": "Writing Equations",
+      "question": "Books cost $5 each. If b = number of books and c = total cost, which equation is correct?",
+      "options": ["A) c = b + 5", "B) c = 5b", "C) b = 5c", "D) c = b/5"],
+      "correct_answer": "B",
+      "explanation": "Total cost = $5 × number of books, so c = 5b. This is y = kx form with k = 5."
+    },
+    {
+      "question_number": 5,
+      "difficulty": "easy",
+      "section_covered": "Graphing Proportional Relationships",
+      "question": "A graph of a proportional relationship is always:",
+      "options": ["A) A curved line", "B) A horizontal line", "C) A straight line through (0, 0)", "D) A straight line that starts at (0, 5)"],
+      "correct_answer": "C",
+      "explanation": "Proportional relationships graph as straight lines that pass through the origin (0, 0)."
+    },
+    {
+      "question_number": 6,
+      "difficulty": "easy",
+      "section_covered": "The Constant of Proportionality",
+      "question": "If 6 notebooks cost $18, what is the cost per notebook (the constant of proportionality)?",
+      "options": ["A) $2", "B) $3", "C) $6", "D) $12"],
+      "correct_answer": "B",
+      "explanation": "k = cost ÷ notebooks = $18 ÷ 6 = $3 per notebook"
+    },
+    {
+      "question_number": 7,
+      "difficulty": "medium",
+      "section_covered": "What Are Proportional Relationships?",
+      "question": "Table A: x: 2,4,6 → y: 6,12,18. Table B: x: 2,4,6 → y: 4,8,14. Which is proportional?",
+      "options": ["A) Only Table A", "B) Only Table B", "C) Both", "D) Neither"],
+      "correct_answer": "A",
+      "explanation": "Table A: 6÷2=3, 12÷4=3, 18÷6=3 ✓ (all equal 3)\nTable B: 4÷2=2, 8÷4=2, 14÷6=2.33 ✗ (not all equal)\nOnly Table A is proportional."
+    },
+    {
+      "question_number": 8,
+      "difficulty": "medium",
+      "section_covered": "Writing Equations",
+      "question": "For every 7 red marbles, there are 3 blue marbles. If r = red and b = blue, write an equation for b in terms of r.",
+      "options": ["A) b = 7r/3", "B) b = 3r/7", "C) b = r + 4", "D) b = 21r"],
+      "correct_answer": "B",
+      "explanation": "k = blue ÷ red = 3 ÷ 7 = 3/7. So b = (3/7)r. Check: if r = 7, b = (3/7)(7) = 3 ✓"
+    },
+    {
+      "question_number": 9,
+      "difficulty": "medium",
+      "section_covered": "Circles: Circumference",
+      "question": "A circular track has radius 50 meters. What is its circumference? (Use π ≈ 3.14)",
+      "options": ["A) 157 m", "B) 314 m", "C) 628 m", "D) 7850 m"],
+      "correct_answer": "B",
+      "explanation": "C = 2πr = 2 × 3.14 × 50 = 314 meters"
+    },
+    {
+      "question_number": 10,
+      "difficulty": "medium",
+      "section_covered": "Circles: Area",
+      "question": "A circular table has diameter 6 feet. What is its area? (Use π ≈ 3.14)",
+      "options": ["A) 9.42 ft²", "B) 18.84 ft²", "C) 28.26 ft²", "D) 113.04 ft²"],
+      "correct_answer": "C",
+      "explanation": "First find radius: r = 6 ÷ 2 = 3 feet. Then A = πr² = 3.14 × 3² = 3.14 × 9 = 28.26 ft²"
+    },
+    {
+      "question_number": 11,
+      "difficulty": "medium",
+      "section_covered": "The Constant of Proportionality",
+      "question": "A machine makes 45 parts in 9 minutes. At this rate, how many parts can it make in 20 minutes?",
+      "options": ["A) 90 parts", "B) 100 parts", "C) 125 parts", "D) 900 parts"],
+      "correct_answer": "B",
+      "explanation": "First find k: k = 45 ÷ 9 = 5 parts per minute. Then: 5 × 20 = 100 parts."
+    },
+    {
+      "question_number": 12,
+      "difficulty": "medium",
+      "section_covered": "Graphing Proportional Relationships",
+      "question": "A proportional relationship has k = 2.5. Which point is on its graph?",
+      "options": ["A) (2, 7.5)", "B) (4, 10)", "C) (5, 10)", "D) (3, 6)"],
+      "correct_answer": "B",
+      "explanation": "For y = 2.5x, check each: A) 2.5×2=5≠7.5, B) 2.5×4=10 ✓, C) 2.5×5=12.5≠10, D) 2.5×3=7.5≠6"
+    },
+    {
+      "question_number": 13,
+      "difficulty": "medium",
+      "section_covered": "Circles: Circumference",
+      "question": "A hula hoop has circumference 251.2 cm. What is its radius? (Use π ≈ 3.14)",
+      "options": ["A) 20 cm", "B) 40 cm", "C) 80 cm", "D) 160 cm"],
+      "correct_answer": "B",
+      "explanation": "C = 2πr, so r = C ÷ (2π) = 251.2 ÷ (2 × 3.14) = 251.2 ÷ 6.28 = 40 cm"
+    },
+    {
+      "question_number": 14,
+      "difficulty": "medium",
+      "section_covered": "Circles: Area",
+      "question": "If a circle's area is 314 cm², what is its radius? (Use π ≈ 3.14)",
+      "options": ["A) 5 cm", "B) 10 cm", "C) 50 cm", "D) 100 cm"],
+      "correct_answer": "B",
+      "explanation": "A = πr², so r² = A ÷ π = 314 ÷ 3.14 = 100. Then r = √100 = 10 cm"
+    },
+    {
+      "question_number": 15,
+      "difficulty": "medium",
+      "section_covered": "Writing Equations",
+      "question": "Which equations are proportional? Select all that apply: 1) y = 3x  2) y = x + 3  3) y = x/3  4) y = 3",
+      "options": ["A) 1 only", "B) 1 and 3", "C) 1, 2, and 3", "D) All of them"],
+      "correct_answer": "B",
+      "explanation": "1) y = 3x ✓ (k = 3)\n2) y = x + 3 ✗ (has addition)\n3) y = x/3 = (1/3)x ✓ (k = 1/3)\n4) y = 3 ✗ (constant, not y = kx)"
+    },
+    {
+      "question_number": 16,
+      "difficulty": "hard",
+      "section_covered": "What Are Proportional Relationships?",
+      "question": "Sam says: 'y = 6/x is proportional because 6 is the constant.' Is Sam correct?",
+      "options": ["A) Yes, k = 6", "B) No, because x is in the denominator", "C) Yes, because there's only multiplication and division", "D) No, because 6 should be a variable"],
+      "correct_answer": "B",
+      "explanation": "No! y = 6/x is NOT proportional. When x doubles, y gets cut in half (not doubled). In a proportional relationship, y = kx means x is multiplied by k, not divided into k."
+    },
+    {
+      "question_number": 17,
+      "difficulty": "hard",
+      "section_covered": "The Constant of Proportionality",
+      "question": "Two runners train at constant speeds. Runner A covers 8 miles in 60 minutes. Runner B covers 5 miles in 40 minutes. Who is faster, and what is their speed?",
+      "options": ["A) Runner A at 8 mph", "B) Runner B at 7.5 mph", "C) They're the same speed", "D) Runner A at 8 miles per 60 min"],
+      "correct_answer": "A",
+      "explanation": "Runner A: 8 miles in 60 minutes = 8 miles per hour (since 60 min = 1 hour). Runner B: 5 miles in 40 minutes = 5 ÷ (40/60) = 5 × (60/40) = 7.5 miles per hour. Runner A is faster at 8 mph compared to Runner B's 7.5 mph."
+    },
+    {
+      "question_number": 18,
+      "difficulty": "hard",
+      "section_covered": "Circles: Circumference",
+      "question": "A semicircle has a diameter of 14 cm. What is the perimeter of the semicircle (curved edge + diameter)? (Use π ≈ 3.14)",
+      "options": ["A) 21.98 cm", "B) 35.98 cm", "C) 43.96 cm", "D) 57.96 cm"],
+      "correct_answer": "B",
+      "explanation": "Curved part = half of circumference = (1/2)πd = (1/2)(3.14)(14) = 21.98 cm. Plus the straight diameter = 14 cm. Total = 21.98 + 14 = 35.98 cm"
+    },
+    {
+      "question_number": 19,
+      "difficulty": "hard",
+      "section_covered": "Circles: Area",
+      "question": "A large pizza (diameter 16 in) costs $16. A small pizza (diameter 8 in) costs $8. Which is the better deal (more area per dollar)?",
+      "options": ["A) The large pizza", "B) The small pizza", "C) Same deal", "D) Cannot determine"],
+      "correct_answer": "A",
+      "explanation": "Large: r = 8, A = π(8)² = 64π ≈ 200.96 in². Cost: $16. Area per $ = 200.96/16 = 12.56 in²/$.\nSmall: r = 4, A = π(4)² = 16π ≈ 50.24 in². Cost: $8. Area per $ = 50.24/8 = 6.28 in²/$.\nLarge gives you twice the pizza per dollar!"
+    },
+    {
+      "question_number": 20,
+      "difficulty": "hard",
+      "section_covered": "Graphing and Equations",
+      "question": "A graph shows two proportional lines. Line P goes through (2, 5) and Line Q goes through (5, 2). What are their equations?",
+      "options": ["A) P: y = 2.5x, Q: y = 0.4x", "B) P: y = 0.4x, Q: y = 2.5x", "C) P: y = 2x + 1, Q: y = 5x - 3", "D) Both have k = 2.5"],
+      "correct_answer": "A",
+      "explanation": "Line P: k = 5 ÷ 2 = 2.5, so y = 2.5x.\nLine Q: k = 2 ÷ 5 = 0.4, so y = 0.4x.\nLine P is steeper (bigger k)."
+    }
+  ],
+  "answer_key_summary": {
+    "answers": ["A", "B", "C", "B", "C", "B", "A", "B", "B", "C", "B", "B", "B", "B", "B", "B", "A", "B", "A", "A"],
+    "score_guide": {
+      "18-20": "Excellent! You're a proportional relationships and circles expert! 🏆",
+      "15-17": "Fantastic work! You have a strong understanding. Keep it up!",
+      "12-14": "Good progress! Review the sections where you made mistakes.",
+      "9-11": "You're learning! Take time to go through the lessons again before retaking.",
+      "0-8": "Don't give up! Math takes practice. Go back to Section 1 and work through each lesson slowly."
+    }
+  }
+}

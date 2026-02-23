@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #f59e0b;
+  --success: #10b981;
+  --error: #ef4444;
+  --background: #fafafa;
+}
+
+body {
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 50%, #fce7f3 100%);
+  min-height: 100vh;
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:from-indigo-600 hover:to-purple-600 hover:scale-105 active:scale-95 shadow-md;
+}
+
+.btn-secondary {
+  @apply bg-white text-indigo-600 border-2 border-indigo-500 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-50 hover:scale-105 active:scale-95;
+}
+
+.progress-bar {
+  @apply h-3 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transition-all duration-500;
+}
+
+.question-card {
+  @apply bg-white rounded-xl p-5 shadow-md border-2 border-transparent transition-all duration-300;
+}
+
+.question-card:hover {
+  @apply border-indigo-200 shadow-lg;
+}
+
+.difficulty-easy {
+  @apply bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.difficulty-medium {
+  @apply bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.difficulty-hard {
+  @apply bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.emoji-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,480 @@
+{
+  "sections": [
+    {
+      "section_id": 1,
+      "section_title": "What Are Proportional Relationships?",
+      "questions": [
+        {
+          "id": "1-1",
+          "difficulty": "easy",
+          "question": "Bananas cost $0.50 each. If you buy 4 bananas, you pay $2. If you buy 8 bananas, you pay $4. Is this a proportional relationship?",
+          "options": ["A) Yes", "B) No"],
+          "correct_answer": "A",
+          "explanation": "Yes! It's proportional because: 2 ÷ 4 = 0.5 and 4 ÷ 8 = 0.5. The ratio is always the same (0.5 or $0.50 per banana)."
+        },
+        {
+          "id": "1-2",
+          "difficulty": "easy",
+          "question": "A taxi charges $5 to get in plus $2 per mile. Is the relationship between miles and total cost proportional?",
+          "options": ["A) Yes", "B) No"],
+          "correct_answer": "B",
+          "explanation": "No! The $5 starting fee means you don't pay $0 for 0 miles - you pay $5 just to get in! This 'starting amount' makes it NOT proportional."
+        },
+        {
+          "id": "1-3",
+          "difficulty": "easy",
+          "question": "In a proportional relationship, what must the values be when one quantity is zero?",
+          "options": ["A) The other quantity is also zero", "B) The other quantity is 1", "C) The other quantity could be anything"],
+          "correct_answer": "A",
+          "explanation": "In a proportional relationship, when one quantity is 0, the other MUST also be 0. This is because 0 times any number equals 0."
+        },
+        {
+          "id": "1-4",
+          "difficulty": "medium",
+          "question": "Look at this table: Hours: 2, 4, 6 → Pay: $30, $60, $90. Is this proportional? If yes, what is the rate?",
+          "options": ["A) Not proportional", "B) Proportional, rate is $15/hour", "C) Proportional, rate is $30/hour", "D) Proportional, rate is $2/hour"],
+          "correct_answer": "B",
+          "explanation": "Yes, it's proportional! Check: 30÷2=15, 60÷4=15, 90÷6=15. All equal 15, so the rate is $15 per hour."
+        },
+        {
+          "id": "1-5",
+          "difficulty": "medium",
+          "question": "Which table shows a proportional relationship?\nTable A: x: 1,2,3 → y: 5,10,15\nTable B: x: 1,2,3 → y: 3,5,7",
+          "options": ["A) Only Table A", "B) Only Table B", "C) Both tables", "D) Neither table"],
+          "correct_answer": "A",
+          "explanation": "Table A: 5÷1=5, 10÷2=5, 15÷3=5 ✓ (all same)\nTable B: 3÷1=3, 5÷2=2.5, 7÷3≈2.33 ✗ (all different)\nOnly Table A is proportional."
+        },
+        {
+          "id": "1-6",
+          "difficulty": "medium",
+          "question": "A recipe calls for 3 cups of flour for every 2 eggs. If you use 9 cups of flour, how many eggs do you need?",
+          "options": ["A) 4 eggs", "B) 5 eggs", "C) 6 eggs", "D) 8 eggs"],
+          "correct_answer": "C",
+          "explanation": "This is proportional! 3 cups flour → 2 eggs. 9 cups is 3 times as much flour (9÷3=3), so you need 3 times as many eggs: 2 × 3 = 6 eggs."
+        },
+        {
+          "id": "1-7",
+          "difficulty": "hard",
+          "question": "Determine if each is proportional:\n1) y = 2x\n2) y = x + 2\n3) y = x²\n4) y = x/5",
+          "options": ["A) 1 and 4 only", "B) 1, 2, and 4", "C) All of them", "D) 1 only"],
+          "correct_answer": "A",
+          "explanation": "1) y = 2x ✓ (just multiplication by 2)\n2) y = x + 2 ✗ (has addition)\n3) y = x² ✗ (has a power/exponent)\n4) y = x/5 ✓ (same as y = (1/5)x, multiplication by 1/5)\nOnly 1 and 4 are proportional."
+        },
+        {
+          "id": "1-8",
+          "difficulty": "hard",
+          "question": "A phone plan costs $20/month for 0 GB data, $30/month for 2 GB, $40/month for 4 GB, and $50/month for 6 GB. Is cost proportional to data?",
+          "options": ["A) Yes, because the cost increases by $10 for each 2 GB", "B) No, because 0 GB costs $20, not $0", "C) Yes, because it's a consistent pattern", "D) No, because it should increase by $20"],
+          "correct_answer": "B",
+          "explanation": "No! For a proportional relationship, 0 GB should cost $0. But here, 0 GB costs $20. That 'base charge' makes it NOT proportional, even though there's a consistent pattern."
+        }
+      ]
+    },
+    {
+      "section_id": 2,
+      "section_title": "The Constant of Proportionality (k)",
+      "questions": [
+        {
+          "id": "2-1",
+          "difficulty": "easy",
+          "question": "If 3 pencils cost $1.50, what is the constant of proportionality (cost per pencil)?",
+          "options": ["A) $0.25", "B) $0.50", "C) $1.50", "D) $4.50"],
+          "correct_answer": "B",
+          "explanation": "k = cost ÷ pencils = $1.50 ÷ 3 = $0.50 per pencil"
+        },
+        {
+          "id": "2-2",
+          "difficulty": "easy",
+          "question": "In the equation y = 7x, what is the constant of proportionality?",
+          "options": ["A) x", "B) y", "C) 7", "D) 7x"],
+          "correct_answer": "C",
+          "explanation": "In y = kx, the number multiplied by x is k. Here, k = 7."
+        },
+        {
+          "id": "2-3",
+          "difficulty": "easy",
+          "question": "A car travels 180 miles in 3 hours. What is the constant of proportionality (miles per hour)?",
+          "options": ["A) 30 mph", "B) 60 mph", "C) 90 mph", "D) 540 mph"],
+          "correct_answer": "B",
+          "explanation": "k = miles ÷ hours = 180 ÷ 3 = 60 mph"
+        },
+        {
+          "id": "2-4",
+          "difficulty": "medium",
+          "question": "From this table, find k:\nGallons: 2, 5, 10 → Miles: 60, 150, 300",
+          "options": ["A) k = 20", "B) k = 30", "C) k = 40", "D) k = 60"],
+          "correct_answer": "B",
+          "explanation": "k = miles ÷ gallons. Check: 60÷2=30, 150÷5=30, 300÷10=30. So k = 30 (the car gets 30 miles per gallon)."
+        },
+        {
+          "id": "2-5",
+          "difficulty": "medium",
+          "question": "If k = 4.5, and x = 8, what is y?",
+          "options": ["A) 12.5", "B) 32", "C) 36", "D) 0.5625"],
+          "correct_answer": "C",
+          "explanation": "y = kx = 4.5 × 8 = 36"
+        },
+        {
+          "id": "2-6",
+          "difficulty": "medium",
+          "question": "A recipe says 'for every 4 cups of water, use 3 cups of rice.' What is k for rice in terms of water?",
+          "options": ["A) k = 4/3", "B) k = 3/4", "C) k = 7", "D) k = 1"],
+          "correct_answer": "B",
+          "explanation": "k = rice ÷ water = 3 ÷ 4 = 3/4 = 0.75. For every 1 cup of water, you use 3/4 cup of rice."
+        },
+        {
+          "id": "2-7",
+          "difficulty": "hard",
+          "question": "If y = 24 when x = 8, and the relationship is proportional, what is y when x = 15?",
+          "options": ["A) 39", "B) 45", "C) 47", "D) 120"],
+          "correct_answer": "B",
+          "explanation": "First find k: k = 24 ÷ 8 = 3. Then: y = 3 × 15 = 45."
+        },
+        {
+          "id": "2-8",
+          "difficulty": "hard",
+          "question": "At a factory, workers can make 35 toys in 7 hours. Using the constant of proportionality, how many toys can they make in 12 hours?",
+          "options": ["A) 42 toys", "B) 54 toys", "C) 60 toys", "D) 84 toys"],
+          "correct_answer": "C",
+          "explanation": "k = toys ÷ hours = 35 ÷ 7 = 5 toys per hour. In 12 hours: 5 × 12 = 60 toys."
+        },
+        {
+          "id": "2-9",
+          "difficulty": "hard",
+          "question": "Two relationships have these equations: y = (2/5)x and y = 0.4x. Do they have the same k?",
+          "options": ["A) No, 2/5 ≠ 0.4", "B) Yes, because 2/5 = 0.4", "C) Cannot determine without more information", "D) No, one is a fraction and one is a decimal"],
+          "correct_answer": "B",
+          "explanation": "Yes! 2/5 = 2 ÷ 5 = 0.4. Both equations have k = 0.4, they're just written differently."
+        }
+      ]
+    },
+    {
+      "section_id": 3,
+      "section_title": "Writing Equations for Proportional Relationships",
+      "questions": [
+        {
+          "id": "3-1",
+          "difficulty": "easy",
+          "question": "A store sells apples for $2 each. Write an equation where c = total cost and a = number of apples.",
+          "options": ["A) c = a + 2", "B) c = 2a", "C) a = 2c", "D) c = a/2"],
+          "correct_answer": "B",
+          "explanation": "Cost = $2 × number of apples, so c = 2a. This follows the y = kx pattern with k = 2."
+        },
+        {
+          "id": "3-2",
+          "difficulty": "easy",
+          "question": "Which equation represents a proportional relationship?",
+          "options": ["A) y = 3x + 1", "B) y = x²", "C) y = 5x", "D) y = 10/x"],
+          "correct_answer": "C",
+          "explanation": "y = 5x is the only one that's just y = (number) × x. The others have addition, powers, or division."
+        },
+        {
+          "id": "3-3",
+          "difficulty": "easy",
+          "question": "If d = 50t represents distance in miles and time in hours, what does the 50 tell you?",
+          "options": ["A) The starting distance", "B) The speed is 50 mph", "C) The total distance", "D) The number of hours"],
+          "correct_answer": "B",
+          "explanation": "In d = 50t, the 50 is k, the constant of proportionality. It means 50 miles per hour - that's the speed!"
+        },
+        {
+          "id": "3-4",
+          "difficulty": "medium",
+          "question": "Write an equation: 'For every 5 cups of grape juice, mix in 2 cups of peach juice.' Let p = peach and g = grape.",
+          "options": ["A) p = 5g", "B) p = (2/5)g", "C) g = (2/5)p", "D) p = 2g + 5"],
+          "correct_answer": "B",
+          "explanation": "k = peach ÷ grape = 2 ÷ 5 = 2/5. So p = (2/5)g. Check: if g = 5, then p = (2/5)(5) = 2 ✓"
+        },
+        {
+          "id": "3-5",
+          "difficulty": "medium",
+          "question": "Which equations are NOT proportional? Select all that apply:\n1) y = 4x\n2) K = C + 273\n3) s = (1/4)p\n4) V = s³",
+          "options": ["A) 2 only", "B) 4 only", "C) 2 and 4", "D) 1 and 3"],
+          "correct_answer": "C",
+          "explanation": "2) K = C + 273 has addition - NOT proportional.\n4) V = s³ has an exponent - NOT proportional.\n1) and 3) are both y = kx form - proportional."
+        },
+        {
+          "id": "3-6",
+          "difficulty": "medium",
+          "question": "From the table (gallons: 3, 6, 9 → cost: $10.50, $21.00, $31.50), write an equation for cost (c) in terms of gallons (g).",
+          "options": ["A) c = 3g", "B) c = 3.5g", "C) c = g + 7.50", "D) c = 10.5g"],
+          "correct_answer": "B",
+          "explanation": "Find k: 10.50 ÷ 3 = 3.5. Check: 21 ÷ 6 = 3.5, 31.50 ÷ 9 = 3.5 ✓. So c = 3.5g"
+        },
+        {
+          "id": "3-7",
+          "difficulty": "hard",
+          "question": "The equation C = 2πr represents the relationship between a circle's circumference (C) and radius (r). What is the constant of proportionality, and is this proportional?",
+          "options": ["A) k = 2π (about 6.28), yes it's proportional", "B) k = π (about 3.14), yes it's proportional", "C) Not proportional because π is not exact", "D) k = 2, not proportional"],
+          "correct_answer": "A",
+          "explanation": "C = 2πr follows the y = kx pattern with k = 2π ≈ 6.28. Yes, it's proportional! Circumference and radius have a constant ratio of 2π."
+        },
+        {
+          "id": "3-8",
+          "difficulty": "hard",
+          "question": "Jamie says y = x/4 is proportional and y = 4/x is proportional because they both involve 4 and division. Is Jamie correct?",
+          "options": ["A) Yes, both are proportional", "B) No, neither is proportional", "C) Only y = x/4 is proportional", "D) Only y = 4/x is proportional"],
+          "correct_answer": "C",
+          "explanation": "y = x/4 = (1/4)x is proportional (k = 1/4).\ny = 4/x is NOT proportional - when x doubles, y gets cut in half (not doubled). It's inverse variation, not direct proportion."
+        },
+        {
+          "id": "3-9",
+          "difficulty": "hard",
+          "question": "Write an equivalent equation to g = (5/2)p using whole number coefficients.",
+          "options": ["A) 2g = 5p", "B) 5g = 2p", "C) g = 2.5p", "D) Both A and C are equivalent"],
+          "correct_answer": "D",
+          "explanation": "g = (5/2)p means g = 2.5p ✓. If we multiply both sides by 2: 2g = 5p ✓. Both A and C are equivalent to the original."
+        }
+      ]
+    },
+    {
+      "section_id": 4,
+      "section_title": "Graphing Proportional Relationships",
+      "questions": [
+        {
+          "id": "4-1",
+          "difficulty": "easy",
+          "question": "What point must ALWAYS be on the graph of a proportional relationship?",
+          "options": ["A) (1, 1)", "B) (0, 0)", "C) (1, 0)", "D) (0, 1)"],
+          "correct_answer": "B",
+          "explanation": "Proportional relationships always pass through the origin (0, 0) because 0 times any number equals 0."
+        },
+        {
+          "id": "4-2",
+          "difficulty": "easy",
+          "question": "The graph of a proportional relationship is always:",
+          "options": ["A) A curved line", "B) A straight line through the origin", "C) A horizontal line", "D) A straight line that doesn't go through (0,0)"],
+          "correct_answer": "B",
+          "explanation": "Proportional relationships are always straight lines that pass through (0, 0)."
+        },
+        {
+          "id": "4-3",
+          "difficulty": "easy",
+          "question": "On a graph, the point (4, 12) means:",
+          "options": ["A) x = 12, y = 4", "B) x = 4, y = 12", "C) x + y = 16", "D) x × y = 48"],
+          "correct_answer": "B",
+          "explanation": "In coordinate pairs (x, y), the first number is x (horizontal) and the second is y (vertical). So (4, 12) means x = 4, y = 12."
+        },
+        {
+          "id": "4-4",
+          "difficulty": "medium",
+          "question": "A graph shows the point (6, 15). If this is a proportional relationship, what is k?",
+          "options": ["A) k = 2.5", "B) k = 0.4", "C) k = 6", "D) k = 9"],
+          "correct_answer": "A",
+          "explanation": "k = y ÷ x = 15 ÷ 6 = 2.5"
+        },
+        {
+          "id": "4-5",
+          "difficulty": "medium",
+          "question": "A graph is a straight line passing through (0, 3) and (2, 7). Is this proportional?",
+          "options": ["A) Yes, because it's a straight line", "B) No, because it doesn't pass through (0, 0)", "C) Yes, because the numbers are increasing", "D) Cannot tell from this information"],
+          "correct_answer": "B",
+          "explanation": "Even though it's a straight line, it passes through (0, 3) instead of (0, 0). Proportional relationships MUST pass through the origin."
+        },
+        {
+          "id": "4-6",
+          "difficulty": "medium",
+          "question": "For the relationship y = 3x, which points would be on the graph?\n1) (0, 0)  2) (1, 3)  3) (2, 6)  4) (5, 15)",
+          "options": ["A) Only 1 and 2", "B) Only 2, 3, and 4", "C) All of them", "D) Only 1"],
+          "correct_answer": "C",
+          "explanation": "Check each: (0,0): 3×0=0 ✓, (1,3): 3×1=3 ✓, (2,6): 3×2=6 ✓, (5,15): 3×5=15 ✓. All points satisfy y = 3x."
+        },
+        {
+          "id": "4-7",
+          "difficulty": "hard",
+          "question": "Two proportional relationships are graphed. Line A passes through (2, 8) and Line B passes through (4, 8). Which has the larger k?",
+          "options": ["A) Line A", "B) Line B", "C) They're equal", "D) Cannot determine"],
+          "correct_answer": "A",
+          "explanation": "Line A: k = 8 ÷ 2 = 4\nLine B: k = 8 ÷ 4 = 2\nLine A has the larger k (4 > 2). It's also the steeper line!"
+        },
+        {
+          "id": "4-8",
+          "difficulty": "hard",
+          "question": "A proportional relationship passes through (3, 7.5). What is the y-value when x = 10?",
+          "options": ["A) 15", "B) 22.5", "C) 25", "D) 30"],
+          "correct_answer": "C",
+          "explanation": "First find k: k = 7.5 ÷ 3 = 2.5. Then: y = 2.5 × 10 = 25."
+        },
+        {
+          "id": "4-9",
+          "difficulty": "hard",
+          "question": "Graph A has k = 1/2. Graph B has k = 2. Which graph is steeper?",
+          "options": ["A) Graph A", "B) Graph B", "C) They're equally steep", "D) Cannot tell without plotting"],
+          "correct_answer": "B",
+          "explanation": "A larger k means a steeper line. k = 2 > k = 1/2, so Graph B is steeper. (For every 1 unit right, Graph B goes up 2 units, while Graph A only goes up 0.5 units.)"
+        }
+      ]
+    },
+    {
+      "section_id": 5,
+      "section_title": "Circles: Circumference",
+      "questions": [
+        {
+          "id": "5-1",
+          "difficulty": "easy",
+          "question": "What is the relationship between diameter and radius?",
+          "options": ["A) Diameter = radius + 2", "B) Diameter = 2 × radius", "C) Diameter = radius ÷ 2", "D) Diameter = radius × radius"],
+          "correct_answer": "B",
+          "explanation": "The diameter is always twice the radius: d = 2r. Or equivalently, the radius is half the diameter: r = d/2."
+        },
+        {
+          "id": "5-2",
+          "difficulty": "easy",
+          "question": "What is the approximate value of π (pi)?",
+          "options": ["A) 2.14", "B) 3.14", "C) 3.41", "D) 4.14"],
+          "correct_answer": "B",
+          "explanation": "π ≈ 3.14159..., commonly rounded to 3.14."
+        },
+        {
+          "id": "5-3",
+          "difficulty": "easy",
+          "question": "A circle has a diameter of 10 cm. What is its radius?",
+          "options": ["A) 5 cm", "B) 10 cm", "C) 20 cm", "D) 100 cm"],
+          "correct_answer": "A",
+          "explanation": "Radius = diameter ÷ 2 = 10 ÷ 2 = 5 cm"
+        },
+        {
+          "id": "5-4",
+          "difficulty": "medium",
+          "question": "Find the circumference of a circle with diameter 14 inches. (Use π ≈ 3.14)",
+          "options": ["A) 21.98 inches", "B) 43.96 inches", "C) 87.92 inches", "D) 14π inches"],
+          "correct_answer": "B",
+          "explanation": "C = πd = 3.14 × 14 = 43.96 inches"
+        },
+        {
+          "id": "5-5",
+          "difficulty": "medium",
+          "question": "A circular garden has a radius of 8 feet. How much fencing is needed to go around it? (Use π ≈ 3.14)",
+          "options": ["A) 25.12 feet", "B) 50.24 feet", "C) 100.48 feet", "D) 200.96 feet"],
+          "correct_answer": "B",
+          "explanation": "Circumference = 2πr = 2 × 3.14 × 8 = 50.24 feet"
+        },
+        {
+          "id": "5-6",
+          "difficulty": "medium",
+          "question": "A bicycle wheel has a circumference of 75.36 inches. What is its diameter? (Use π ≈ 3.14)",
+          "options": ["A) 12 inches", "B) 24 inches", "C) 36 inches", "D) 48 inches"],
+          "correct_answer": "B",
+          "explanation": "C = πd, so d = C ÷ π = 75.36 ÷ 3.14 = 24 inches"
+        },
+        {
+          "id": "5-7",
+          "difficulty": "hard",
+          "question": "A clock face has a radius of 6 inches. If the minute hand makes one complete rotation, how far does the tip travel?",
+          "options": ["A) 12π inches", "B) 6π inches", "C) 36π inches", "D) 18.84 inches"],
+          "correct_answer": "A",
+          "explanation": "One complete rotation = circumference. C = 2πr = 2π(6) = 12π inches (≈ 37.68 inches)"
+        },
+        {
+          "id": "5-8",
+          "difficulty": "hard",
+          "question": "Circle A has diameter 6 cm. Circle B has radius 4 cm. Which has the greater circumference?",
+          "options": ["A) Circle A", "B) Circle B", "C) They're equal", "D) Cannot determine"],
+          "correct_answer": "B",
+          "explanation": "Circle A: C = πd = 6π ≈ 18.84 cm\nCircle B: C = 2πr = 2π(4) = 8π ≈ 25.12 cm\nCircle B is larger."
+        },
+        {
+          "id": "5-9",
+          "difficulty": "hard",
+          "question": "A semicircle (half circle) has a diameter of 20 cm. What is the total perimeter of the semicircle (curved part + straight diameter)?",
+          "options": ["A) 10π cm", "B) 10π + 20 cm", "C) 20π cm", "D) 20π + 20 cm"],
+          "correct_answer": "B",
+          "explanation": "Curved part = half of circumference = (1/2)πd = (1/2)π(20) = 10π cm\nStraight part = diameter = 20 cm\nTotal = 10π + 20 cm ≈ 51.4 cm"
+        },
+        {
+          "id": "5-10",
+          "difficulty": "hard",
+          "question": "Express the circumference of a circle with radius r in terms of the diameter d.",
+          "options": ["A) C = πr", "B) C = 2πr and C = πd (both are correct)", "C) C = πd only", "D) C = 2πd"],
+          "correct_answer": "B",
+          "explanation": "Since d = 2r, we have: C = 2πr = π(2r) = πd. Both formulas give the same answer!"
+        }
+      ]
+    },
+    {
+      "section_id": 6,
+      "section_title": "Circles: Area",
+      "questions": [
+        {
+          "id": "6-1",
+          "difficulty": "easy",
+          "question": "What is the formula for the area of a circle?",
+          "options": ["A) A = πd", "B) A = 2πr", "C) A = πr²", "D) A = πd²"],
+          "correct_answer": "C",
+          "explanation": "Area of a circle = π × radius squared = πr²"
+        },
+        {
+          "id": "6-2",
+          "difficulty": "easy",
+          "question": "A circle has a radius of 3 cm. What is 3² (3 squared)?",
+          "options": ["A) 6", "B) 9", "C) 27", "D) 3"],
+          "correct_answer": "B",
+          "explanation": "3² = 3 × 3 = 9"
+        },
+        {
+          "id": "6-3",
+          "difficulty": "easy",
+          "question": "What units do we use for area?",
+          "options": ["A) Inches", "B) Square inches", "C) Cubic inches", "D) Pi inches"],
+          "correct_answer": "B",
+          "explanation": "Area is measured in square units (like square inches, square centimeters, square feet)."
+        },
+        {
+          "id": "6-4",
+          "difficulty": "medium",
+          "question": "Find the area of a circle with radius 5 cm. (Use π ≈ 3.14)",
+          "options": ["A) 15.7 cm²", "B) 31.4 cm²", "C) 78.5 cm²", "D) 157 cm²"],
+          "correct_answer": "C",
+          "explanation": "A = πr² = 3.14 × 5² = 3.14 × 25 = 78.5 cm²"
+        },
+        {
+          "id": "6-5",
+          "difficulty": "medium",
+          "question": "A circular pizza has a diameter of 12 inches. What is its area? (Use π ≈ 3.14)",
+          "options": ["A) 37.68 in²", "B) 113.04 in²", "C) 452.16 in²", "D) 144 in²"],
+          "correct_answer": "B",
+          "explanation": "First find radius: r = 12 ÷ 2 = 6 inches. Then A = πr² = 3.14 × 6² = 3.14 × 36 = 113.04 in²"
+        },
+        {
+          "id": "6-6",
+          "difficulty": "medium",
+          "question": "If a circle has area 50.24 cm², what is its radius? (Use π ≈ 3.14)",
+          "options": ["A) 4 cm", "B) 8 cm", "C) 16 cm", "D) 2 cm"],
+          "correct_answer": "A",
+          "explanation": "A = πr², so r² = A ÷ π = 50.24 ÷ 3.14 = 16. Therefore r = √16 = 4 cm"
+        },
+        {
+          "id": "6-7",
+          "difficulty": "hard",
+          "question": "A rectangular board measures 15 inches by 10 inches. A circular hole with radius 2 inches is cut out. What is the remaining area?",
+          "options": ["A) 150 - 4π in²", "B) 150 - 2π in²", "C) 137.44 in²", "D) Both A and C"],
+          "correct_answer": "D",
+          "explanation": "Rectangle: 15 × 10 = 150 in². Circle: π × 2² = 4π ≈ 12.56 in². Remaining: 150 - 4π ≈ 150 - 12.56 = 137.44 in². Both A and C are correct (exact and approximate)."
+        },
+        {
+          "id": "6-8",
+          "difficulty": "hard",
+          "question": "If you double the radius of a circle, what happens to its area?",
+          "options": ["A) The area doubles", "B) The area triples", "C) The area quadruples (×4)", "D) The area increases by 2"],
+          "correct_answer": "C",
+          "explanation": "If r → 2r, then A = π(2r)² = π(4r²) = 4πr² = 4 times the original area! The area quadruples because of the squaring."
+        },
+        {
+          "id": "6-9",
+          "difficulty": "hard",
+          "question": "A large circle has radius 10 cm. A smaller circle with radius 6 cm is cut out from the center. What is the area of the remaining ring (annulus)?",
+          "options": ["A) 64π cm²", "B) 36π cm²", "C) 100π cm²", "D) 4π cm²"],
+          "correct_answer": "A",
+          "explanation": "Large circle: π × 10² = 100π cm². Small circle: π × 6² = 36π cm². Ring: 100π - 36π = 64π cm² ≈ 200.96 cm²"
+        },
+        {
+          "id": "6-10",
+          "difficulty": "hard",
+          "question": "A circle and a square both have perimeter/circumference of 28.26 cm. Which has the greater area?",
+          "options": ["A) The circle", "B) The square", "C) They're equal", "D) Cannot determine"],
+          "correct_answer": "A",
+          "explanation": "Circle: C = 28.26, so d = 28.26 ÷ 3.14 = 9, r = 4.5. Area = π(4.5)² ≈ 63.59 cm².\nSquare: P = 28.26, so each side = 28.26 ÷ 4 = 7.065. Area = 7.065² ≈ 49.91 cm².\nThe circle has greater area!"
+        }
+      ]
+    }
+  ]
+}

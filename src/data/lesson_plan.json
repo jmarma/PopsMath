@@ -1,0 +1,771 @@
+{
+  "sections": [
+    {
+      "section_id": 1,
+      "title": "What Are Proportional Relationships?",
+      "introduction": {
+        "hook": "Have you ever noticed that if you buy 2 candy bars instead of 1, you pay exactly twice as much? That's a proportional relationship in action!",
+        "overview": "A proportional relationship is when two things are connected in a very special way: when one thing doubles, the other doubles too. When one thing triples, the other triples too. They always grow (or shrink) together at the same rate."
+      },
+      "key_concepts": [
+        {
+          "concept": "Proportional Relationship Definition",
+          "simple_explanation": "Two quantities have a proportional relationship when you can always multiply one by the SAME number to get the other.",
+          "real_world_example": "If apples cost $2 each, then 1 apple = $2, 2 apples = $4, 3 apples = $6. You ALWAYS multiply the number of apples by 2 to get the cost!",
+          "visual_description": "Think of it like a recipe that you can make bigger or smaller. If you double all ingredients, you get double the food. The RATIO stays the same."
+        },
+        {
+          "concept": "Identifying Proportional Relationships",
+          "simple_explanation": "To check if something is proportional, divide one quantity by the other. If you ALWAYS get the same answer, it's proportional!",
+          "real_world_example": "Gas costs $4 per gallon. 2 gallons = $8 (8÷2=4). 5 gallons = $20 (20÷5=4). 10 gallons = $40 (40÷10=4). Same answer every time = PROPORTIONAL!",
+          "visual_description": "Imagine you have a table with two columns. Divide each pair. If all your answers match, you have a proportional relationship."
+        },
+        {
+          "concept": "NOT Proportional Relationships",
+          "simple_explanation": "Some relationships seem like they might be proportional, but they're not! Usually these have something added or subtracted, or involve multiplication by itself (like squaring).",
+          "real_world_example": "A pizza delivery fee is $5 plus $10 per pizza. 1 pizza = $15. 2 pizzas = $25. But 25÷2 = 12.5, not 15! The $5 fee messes it up - NOT proportional.",
+          "visual_description": "If there's a 'starting amount' that doesn't change, it's usually NOT proportional."
+        }
+      ],
+      "step_by_step_examples": [
+        {
+          "title": "Example 1: Checking if a relationship is proportional",
+          "problem": "A movie theater charges $12 per ticket. Is the relationship between number of tickets and total cost proportional?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Make a table with some values",
+              "work": "Tickets: 1, 2, 3, 4 → Cost: $12, $24, $36, $48"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Divide cost by tickets for each row",
+              "work": "12÷1=12, 24÷2=12, 36÷3=12, 48÷4=12"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Check if all answers are the same",
+              "work": "Yes! All equal 12."
+            },
+            {
+              "step_number": 4,
+              "instruction": "State your conclusion",
+              "work": "YES, this IS a proportional relationship!"
+            }
+          ],
+          "answer": "Yes, it's proportional because the cost is always 12 times the number of tickets."
+        },
+        {
+          "title": "Example 2: A NON-proportional relationship",
+          "problem": "A gym membership costs $50 to join plus $20 per month. Is this proportional?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Make a table with some values",
+              "work": "Months: 1, 2, 3, 4 → Cost: $70, $90, $110, $130"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Divide cost by months for each row",
+              "work": "70÷1=70, 90÷2=45, 110÷3=36.67, 130÷4=32.5"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Check if all answers are the same",
+              "work": "NO! We got 70, 45, 36.67, 32.5 - all different!"
+            },
+            {
+              "step_number": 4,
+              "instruction": "State your conclusion",
+              "work": "NOT proportional because of the $50 joining fee."
+            }
+          ],
+          "answer": "No, it's NOT proportional because the $50 joining fee means you don't multiply by the same number each time."
+        }
+      ],
+      "common_mistakes": [
+        {
+          "mistake": "Thinking any relationship with multiplication is proportional",
+          "why_wrong": "y = x² uses multiplication, but it's NOT proportional! When x doubles, y quadruples (not doubles).",
+          "how_to_avoid": "Always check: does doubling one quantity double the other? If not, it's not proportional."
+        },
+        {
+          "mistake": "Forgetting to check if zero works",
+          "why_wrong": "In a true proportional relationship, when one quantity is 0, the other must be 0 too.",
+          "how_to_avoid": "Ask yourself: 'If I have 0 of one thing, do I have 0 of the other?' If not, it's probably not proportional."
+        }
+      ],
+      "encouragement": "Great job learning about proportional relationships! This is the foundation for everything else in this unit. Take your time to really understand this before moving on. 🌟"
+    },
+    {
+      "section_id": 2,
+      "title": "The Constant of Proportionality (k)",
+      "introduction": {
+        "hook": "Remember how we kept dividing and getting the same number? That special number has a name, and it's super important!",
+        "overview": "The constant of proportionality is the number you ALWAYS multiply by to go from one quantity to the other. We often call it 'k' in math."
+      },
+      "key_concepts": [
+        {
+          "concept": "What is the Constant of Proportionality?",
+          "simple_explanation": "It's the 'magic multiplier' - the number that connects two proportional quantities. You multiply one quantity by k to get the other.",
+          "real_world_example": "If carpet costs $1.50 per square foot, then 1.50 is the constant of proportionality. You multiply square feet × 1.50 to get the cost.",
+          "visual_description": "Think of k as a machine: you put in one number, multiply by k, and out comes the other number. Always the same k!"
+        },
+        {
+          "concept": "Finding k from a Table",
+          "simple_explanation": "To find k, just divide! Pick any row in your table and divide: k = y ÷ x (or output ÷ input).",
+          "real_world_example": "If 4 hours of work earns $60, then k = 60 ÷ 4 = 15. So k = 15 (that's $15 per hour).",
+          "visual_description": "k is the answer you get when you divide y by x in any row of a proportional relationship table."
+        },
+        {
+          "concept": "What k Means in Real Life",
+          "simple_explanation": "The constant of proportionality is often a RATE - like dollars per item, miles per hour, or cups per batch.",
+          "real_world_example": "If k = 1.50 for carpet, it means '$1.50 per square foot.' If k = 65 for driving, it means '65 miles per hour.'",
+          "visual_description": "k often answers the question 'how much of one thing per one of the other?'"
+        }
+      ],
+      "step_by_step_examples": [
+        {
+          "title": "Example 1: Finding k from a table",
+          "problem": "Find the constant of proportionality: Square feet: 10, 20, 50 → Cost: $15, $30, $75",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Pick any pair from the table",
+              "work": "Let's use 10 sq ft → $15"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Divide: k = cost ÷ square feet",
+              "work": "k = 15 ÷ 10 = 1.5"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Check with another pair to make sure",
+              "work": "30 ÷ 20 = 1.5 ✓ and 75 ÷ 50 = 1.5 ✓"
+            },
+            {
+              "step_number": 4,
+              "instruction": "State what k means",
+              "work": "k = 1.5 means the carpet costs $1.50 per square foot"
+            }
+          ],
+          "answer": "k = 1.5 (or $1.50 per square foot)"
+        },
+        {
+          "title": "Example 2: Using k to find missing values",
+          "problem": "If k = 1.5, how much does 80 square feet of carpet cost?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Write the relationship",
+              "work": "cost = k × square feet"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Substitute the values you know",
+              "work": "cost = 1.5 × 80"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Multiply",
+              "work": "cost = 120"
+            }
+          ],
+          "answer": "80 square feet costs $120"
+        },
+        {
+          "title": "Example 3: Finding k from a word problem",
+          "problem": "A recipe uses 2 cups of peach juice for every 5 cups of grape juice. What is k?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Identify what's being compared",
+              "work": "peach juice to grape juice"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Write as a fraction (peach ÷ grape)",
+              "work": "k = 2 ÷ 5 = 2/5 = 0.4"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Interpret what this means",
+              "work": "For every 1 cup of grape juice, you need 0.4 cups of peach juice"
+            }
+          ],
+          "answer": "k = 2/5 or 0.4"
+        }
+      ],
+      "common_mistakes": [
+        {
+          "mistake": "Dividing in the wrong order",
+          "why_wrong": "k = y ÷ x (not x ÷ y). The order matters! Getting it backwards gives you 1/k instead of k.",
+          "how_to_avoid": "Always think: 'What am I trying to find per what?' Cost per square foot means cost ÷ square feet."
+        },
+        {
+          "mistake": "Thinking k must be a whole number",
+          "why_wrong": "k can be any number! It can be a fraction (like 1/4), a decimal (like 3.14), or a whole number (like 5).",
+          "how_to_avoid": "Don't round unless told to. Fractions and decimals are perfectly fine for k."
+        }
+      ],
+      "encouragement": "You're doing awesome! Finding k is like finding a secret code that unlocks the relationship. Once you have k, you can find ANY value in the relationship! 🔑"
+    },
+    {
+      "section_id": 3,
+      "title": "Writing Equations for Proportional Relationships",
+      "introduction": {
+        "hook": "Now that you know about k, let's turn these relationships into equations! Equations are like shortcuts - instead of making a huge table, you write one line that works for ANY value.",
+        "overview": "All proportional relationships can be written as y = kx, where k is the constant of proportionality."
+      },
+      "key_concepts": [
+        {
+          "concept": "The Magic Formula: y = kx",
+          "simple_explanation": "Every proportional relationship follows this pattern: y equals k times x. That's it! y = kx",
+          "real_world_example": "If candy costs $3 each: cost = 3 × number of candies. Using letters: c = 3n (where c = cost, n = number)",
+          "visual_description": "y = kx means: output = (constant) × input. It's a multiplication machine!"
+        },
+        {
+          "concept": "Choosing Good Variable Names",
+          "simple_explanation": "Instead of always using x and y, use letters that make sense! Use the first letter of what you're measuring.",
+          "real_world_example": "For carpet cost: c = 1.5f (c for cost, f for square feet). For distance and time: d = 65t (d for distance, t for time)",
+          "visual_description": "Good variable names help you remember what the equation is about."
+        },
+        {
+          "concept": "Recognizing Proportional Equations",
+          "simple_explanation": "An equation is proportional if it's JUST multiplication: y = (some number) × x. Nothing added, nothing subtracted, no powers.",
+          "real_world_example": "Proportional: y = 4x, d = 1/3t, c = 0.99n. NOT proportional: y = 4 + x, A = s², y = 36/x",
+          "visual_description": "If you see + or - or ² in the equation, it's probably NOT proportional."
+        }
+      ],
+      "step_by_step_examples": [
+        {
+          "title": "Example 1: Writing an equation from words",
+          "problem": "Each square foot of carpet costs $1.50. Write an equation relating cost and square feet.",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Identify what you're relating",
+              "work": "cost (output) and square feet (input)"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Choose variable names",
+              "work": "Let c = cost in dollars, f = square feet"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Identify k (the rate)",
+              "work": "k = $1.50 per square foot = 1.5"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Write the equation using y = kx format",
+              "work": "c = 1.5f"
+            },
+            {
+              "step_number": 5,
+              "instruction": "Check with a value",
+              "work": "10 sq ft: c = 1.5 × 10 = $15 ✓"
+            }
+          ],
+          "answer": "c = 1.5f"
+        },
+        {
+          "title": "Example 2: Writing an equation from a recipe",
+          "problem": "For every 5 cups of grape juice, mix in 2 cups of peach juice. Write an equation with p for peach and g for grape.",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Find the relationship as a rate",
+              "work": "2 cups peach per 5 cups grape = 2/5 per cup of grape"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Identify k",
+              "work": "k = 2/5 or 0.4"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Write the equation",
+              "work": "p = (2/5)g or p = 0.4g"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Check: if g = 5, what is p?",
+              "work": "p = (2/5) × 5 = 2 ✓"
+            }
+          ],
+          "answer": "p = (2/5)g or p = 0.4g"
+        },
+        {
+          "title": "Example 3: Identifying which equations are proportional",
+          "problem": "Which of these represent proportional relationships? a) K = C + 273  b) s = (1/4)p  c) V = s³  d) p = 0.4g",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Check equation (a): K = C + 273",
+              "work": "Has '+ 273' - there's addition! NOT proportional."
+            },
+            {
+              "step_number": 2,
+              "instruction": "Check equation (b): s = (1/4)p",
+              "work": "Just multiplication by 1/4. This IS proportional! k = 1/4"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Check equation (c): V = s³",
+              "work": "s³ means s × s × s. This is a power, NOT proportional."
+            },
+            {
+              "step_number": 4,
+              "instruction": "Check equation (d): p = 0.4g",
+              "work": "Just multiplication by 0.4. This IS proportional! k = 0.4"
+            }
+          ],
+          "answer": "b and d are proportional"
+        }
+      ],
+      "common_mistakes": [
+        {
+          "mistake": "Adding extra stuff to the equation",
+          "why_wrong": "y = 3x + 2 is NOT proportional because of the + 2. Proportional equations ONLY have multiplication.",
+          "how_to_avoid": "Your equation should look like y = (number)x with nothing else. Just one letter, one number, and a multiplication."
+        },
+        {
+          "mistake": "Confusing which variable is x and which is y",
+          "why_wrong": "If you mix them up, your k will be upside down (you'll get 1/k instead of k).",
+          "how_to_avoid": "The variable you multiply BY k is x (the input). The variable that EQUALS something is y (the output)."
+        },
+        {
+          "mistake": "Thinking y = x/3 is different from y = (1/3)x",
+          "why_wrong": "They're the same! Dividing by 3 is the same as multiplying by 1/3. Both have k = 1/3.",
+          "how_to_avoid": "Remember: dividing by a number is the same as multiplying by its reciprocal."
+        }
+      ],
+      "encouragement": "You're turning into an equation-writing machine! 🤖 Remember, equations are just a quick way to describe a relationship. Once you write one, you can find ANY value you need!"
+    },
+    {
+      "section_id": 4,
+      "title": "Graphing Proportional Relationships",
+      "introduction": {
+        "hook": "Graphs are like pictures of relationships! When you graph a proportional relationship, something magical happens - you always get a perfectly straight line through the origin!",
+        "overview": "Proportional relationships create straight lines that pass through the point (0, 0) - called the origin."
+      },
+      "key_concepts": [
+        {
+          "concept": "Graphs of Proportional Relationships",
+          "simple_explanation": "When you plot points from a proportional relationship and connect them, you get a straight line. This line ALWAYS goes through (0, 0).",
+          "real_world_example": "If you graph carpet cost vs. square feet, and 0 sq ft costs $0, 10 sq ft costs $15, 20 sq ft costs $30... these points form a straight line through the origin.",
+          "visual_description": "Imagine drawing a line from the corner of the graph (0,0) straight up and to the right. That's what a proportional relationship looks like!"
+        },
+        {
+          "concept": "Why (0, 0) Matters",
+          "simple_explanation": "The origin (0, 0) MUST be on the line because: if you have 0 of one thing, you have 0 of the other. Zero times anything is zero!",
+          "real_world_example": "0 square feet of carpet costs $0. 0 hours of work = $0 pay. 0 candies cost $0. Makes sense, right?",
+          "visual_description": "If a line doesn't go through (0, 0), the relationship is NOT proportional."
+        },
+        {
+          "concept": "Finding k from a Graph",
+          "simple_explanation": "You can find k by picking ANY point on the line and dividing: k = y ÷ x. You can also look at the 'steepness' (slope) of the line.",
+          "real_world_example": "If the point (10, 15) is on the line, then k = 15 ÷ 10 = 1.5",
+          "visual_description": "Steeper lines have bigger k values. Flatter lines have smaller k values."
+        },
+        {
+          "concept": "Plotting Points",
+          "simple_explanation": "To graph a proportional relationship: 1) Make a table of values, 2) Plot each point (x, y), 3) Connect with a straight line through (0, 0).",
+          "real_world_example": "For the grape/peach juice recipe (5 grape → 2 peach): Plot (0,0), (5,2), (10,4), (15,6). Connect the dots!",
+          "visual_description": "Think of it like connect-the-dots, but the dots are always in a straight line."
+        }
+      ],
+      "step_by_step_examples": [
+        {
+          "title": "Example 1: Graphing from a table",
+          "problem": "Graph the carpet cost relationship: 10 sq ft = $15, 20 sq ft = $30, 40 sq ft = $60",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Set up your axes",
+              "work": "x-axis: square feet (0 to 50), y-axis: cost in dollars (0 to 70)"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Always start with (0, 0)",
+              "work": "Plot the origin: 0 sq ft costs $0"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Plot each point from the table",
+              "work": "Plot (10, 15), (20, 30), (40, 60)"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Connect with a straight line",
+              "work": "Draw a line through all points, extending through (0,0)"
+            },
+            {
+              "step_number": 5,
+              "instruction": "Label your graph",
+              "work": "Title: 'Carpet Cost vs. Square Feet', label each axis"
+            }
+          ],
+          "answer": "A straight line through (0,0), (10,15), (20,30), (40,60)"
+        },
+        {
+          "title": "Example 2: Finding k from a graph",
+          "problem": "A graph shows points (5, 2), (10, 4), and (15, 6). Find k.",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Pick any point (except the origin)",
+              "work": "Let's use (10, 4)"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Divide y by x",
+              "work": "k = 4 ÷ 10 = 0.4"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Check with another point",
+              "work": "(5, 2): k = 2 ÷ 5 = 0.4 ✓"
+            }
+          ],
+          "answer": "k = 0.4 or 2/5"
+        },
+        {
+          "title": "Example 3: Is this graph proportional?",
+          "problem": "A graph shows a straight line, but it passes through (0, 5) instead of (0, 0). Is it proportional?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Check the key feature",
+              "work": "Does the line pass through (0, 0)?"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Analyze",
+              "work": "No! It passes through (0, 5)"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Conclude",
+              "work": "NOT proportional - even though it's straight, it doesn't go through the origin"
+            }
+          ],
+          "answer": "No, it's NOT proportional because it doesn't pass through (0, 0)"
+        }
+      ],
+      "common_mistakes": [
+        {
+          "mistake": "Forgetting to include (0, 0)",
+          "why_wrong": "Even if (0, 0) isn't in your table, it MUST be on the line for proportional relationships.",
+          "how_to_avoid": "Always start by plotting (0, 0), then add your other points."
+        },
+        {
+          "mistake": "Drawing a curved line",
+          "why_wrong": "Proportional relationships are ALWAYS straight lines. If your points don't line up straight, check your math!",
+          "how_to_avoid": "Use a ruler! If points don't line up, you made a calculation error somewhere."
+        },
+        {
+          "mistake": "Mixing up x and y coordinates",
+          "why_wrong": "(10, 15) means x=10, y=15. Swapping them gives the wrong point!",
+          "how_to_avoid": "Remember: (x, y) means (horizontal, vertical). Go right first, then up."
+        }
+      ],
+      "encouragement": "Graphs are super powerful! 📊 Now you can SEE relationships, not just calculate them. Plus, you can use a graph to estimate values that aren't in your table!"
+    },
+    {
+      "section_id": 5,
+      "title": "Circles: Circumference",
+      "introduction": {
+        "hook": "Circles are everywhere - wheels, pizzas, clocks, coins! Let's learn how to measure around a circle. This might surprise you, but it's actually a proportional relationship!",
+        "overview": "The circumference (distance around a circle) is always π times the diameter. This makes circumference and diameter proportional!"
+      },
+      "key_concepts": [
+        {
+          "concept": "Parts of a Circle",
+          "simple_explanation": "A circle has special parts with special names: the center (middle point), radius (center to edge), diameter (edge to edge through center), and circumference (distance around).",
+          "real_world_example": "On a bicycle wheel: the axle is at the center, a spoke is like a radius, and the tire is the circumference.",
+          "visual_description": "Radius is like a spoke going from the center to the edge. Diameter is like a spoke that goes ALL the way across, passing through the center."
+        },
+        {
+          "concept": "Radius and Diameter Relationship",
+          "simple_explanation": "The diameter is TWICE the radius. Or: the radius is HALF the diameter. d = 2r, or r = d/2",
+          "real_world_example": "If a pizza has a radius of 6 inches (center to crust), its diameter is 12 inches (crust to crust through center).",
+          "visual_description": "Think of diameter as two radii (radiuses) placed end to end."
+        },
+        {
+          "concept": "Pi (π) - The Magic Number",
+          "simple_explanation": "Pi is a special number (approximately 3.14) that shows up whenever you work with circles. The circumference divided by the diameter ALWAYS equals pi!",
+          "real_world_example": "Take ANY circle - a quarter, a frisbee, Earth! - and divide its circumference by its diameter. You'll always get about 3.14!",
+          "visual_description": "π ≈ 3.14159... It goes on forever, but we usually just use 3.14 or the π button on a calculator."
+        },
+        {
+          "concept": "Circumference Formula",
+          "simple_explanation": "C = πd (Circumference = pi times diameter) or C = 2πr (Circumference = 2 times pi times radius). Both work!",
+          "real_world_example": "A bike wheel with diameter 26 inches: C = π × 26 ≈ 3.14 × 26 ≈ 81.64 inches around.",
+          "visual_description": "The circumference is a little more than 3 times the diameter. If you rolled a circle on a ruler, it would travel about 3.14 diameters."
+        }
+      ],
+      "step_by_step_examples": [
+        {
+          "title": "Example 1: Finding circumference from diameter",
+          "problem": "A cereal bowl has a diameter of 16 cm. What is its circumference?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Write the formula",
+              "work": "C = πd"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Substitute the diameter",
+              "work": "C = π × 16"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Calculate (use 3.14 for π)",
+              "work": "C = 3.14 × 16 = 50.24 cm"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Or leave in terms of π",
+              "work": "C = 16π cm (exact answer)"
+            }
+          ],
+          "answer": "About 50.24 cm (or exactly 16π cm)"
+        },
+        {
+          "title": "Example 2: Finding circumference from radius",
+          "problem": "A circular garden has a radius of 7 feet. What is the circumference?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Write the formula using radius",
+              "work": "C = 2πr"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Substitute the radius",
+              "work": "C = 2 × π × 7"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Simplify",
+              "work": "C = 14π"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Calculate using 3.14",
+              "work": "C = 14 × 3.14 = 43.96 feet"
+            }
+          ],
+          "answer": "About 43.96 feet (or exactly 14π feet)"
+        },
+        {
+          "title": "Example 3: Finding diameter from circumference",
+          "problem": "A circular track has a circumference of 400 meters. What is its diameter?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Write the formula",
+              "work": "C = πd"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Solve for d by dividing both sides by π",
+              "work": "d = C ÷ π"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Substitute and calculate",
+              "work": "d = 400 ÷ 3.14 ≈ 127.39 meters"
+            }
+          ],
+          "answer": "About 127.39 meters"
+        }
+      ],
+      "common_mistakes": [
+        {
+          "mistake": "Confusing radius and diameter",
+          "why_wrong": "Using radius in the diameter formula (or vice versa) gives an answer that's off by a factor of 2.",
+          "how_to_avoid": "Always check: diameter goes ALL the way across through the center. Radius is only HALF of that."
+        },
+        {
+          "mistake": "Forgetting to multiply by 2 when using radius",
+          "why_wrong": "C = πr is WRONG! You need C = 2πr when using radius.",
+          "how_to_avoid": "Remember: C = πd OR C = 2πr. If you use r, don't forget the 2!"
+        },
+        {
+          "mistake": "Using the wrong value for π",
+          "why_wrong": "π is not exactly 3! Using 3 instead of 3.14 will make your answers too small.",
+          "how_to_avoid": "Use 3.14 (or your calculator's π button) unless told otherwise."
+        }
+      ],
+      "encouragement": "You've unlocked the secrets of circles! 🔵 Pi is one of the coolest numbers in all of math. It shows up everywhere in nature and science!"
+    },
+    {
+      "section_id": 6,
+      "title": "Circles: Area",
+      "introduction": {
+        "hook": "Now that you know how to measure AROUND a circle, let's learn to measure INSIDE! How much pizza is in that pizza? How much grass is in that circular garden?",
+        "overview": "The area of a circle equals pi times the radius squared: A = πr²"
+      },
+      "key_concepts": [
+        {
+          "concept": "What is Area?",
+          "simple_explanation": "Area is the amount of space INSIDE a shape. It's measured in square units (like square inches or square centimeters).",
+          "real_world_example": "The area of a pizza tells you how much pizza you actually get to eat. The area of a rug tells you how much floor it covers.",
+          "visual_description": "Imagine filling the inside of a circle with tiny squares. That's what area measures!"
+        },
+        {
+          "concept": "The Area Formula: A = πr²",
+          "simple_explanation": "Area of a circle = pi times radius times radius. You MUST use the radius (not diameter), and you MUST square it!",
+          "real_world_example": "A pizza with radius 6 inches: A = π × 6² = π × 36 ≈ 113.04 square inches of pizza!",
+          "visual_description": "r² means r × r. So A = π × r × r."
+        },
+        {
+          "concept": "Why We Square the Radius",
+          "simple_explanation": "Squaring makes sense because area is two-dimensional (length × width). Even though circles are round, we're still measuring a flat space.",
+          "real_world_example": "If you double the radius of a circle, the area becomes 4 times bigger (not 2 times). That's because of the squaring!",
+          "visual_description": "Imagine cutting a circle into pizza slices and rearranging them into an almost-rectangle. The 'width' is the radius, and the 'length' is half the circumference."
+        },
+        {
+          "concept": "Using Diameter to Find Area",
+          "simple_explanation": "If you're given diameter, first find the radius by dividing by 2. Then use A = πr².",
+          "real_world_example": "A table with diameter 4 feet: radius = 4 ÷ 2 = 2 feet. Area = π × 2² = π × 4 ≈ 12.56 square feet.",
+          "visual_description": "Diameter → divide by 2 → radius → square it → multiply by π → area!"
+        }
+      ],
+      "step_by_step_examples": [
+        {
+          "title": "Example 1: Finding area from radius",
+          "problem": "A circular pool has a radius of 10 meters. What is its area?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Write the formula",
+              "work": "A = πr²"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Substitute the radius",
+              "work": "A = π × 10²"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Square the radius first",
+              "work": "A = π × 100"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Multiply by π (use 3.14)",
+              "work": "A = 3.14 × 100 = 314 square meters"
+            }
+          ],
+          "answer": "314 m² (or 100π m²)"
+        },
+        {
+          "title": "Example 2: Finding area from diameter",
+          "problem": "A circular hole has a diameter of 6 inches. What is its area?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Find the radius first",
+              "work": "r = diameter ÷ 2 = 6 ÷ 2 = 3 inches"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Write the area formula",
+              "work": "A = πr²"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Substitute and square",
+              "work": "A = π × 3² = π × 9"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Calculate",
+              "work": "A = 3.14 × 9 = 28.26 square inches"
+            }
+          ],
+          "answer": "About 28.26 in² (or 9π in²)"
+        },
+        {
+          "title": "Example 3: Real-world problem with subtraction",
+          "problem": "A rectangular board (20 in × 40 in) has a circular hole cut out with diameter 6 inches. What is the remaining area?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Find the area of the rectangle",
+              "work": "Rectangle: A = 20 × 40 = 800 square inches"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Find the area of the circle (from Example 2)",
+              "work": "Circle: A = 9π ≈ 28.26 square inches"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Subtract circle from rectangle",
+              "work": "Remaining = 800 - 28.26 = 771.74 square inches"
+            }
+          ],
+          "answer": "About 771.74 in² (or 800 - 9π in²)"
+        },
+        {
+          "title": "Example 4: Finding radius from area",
+          "problem": "A circular sign has an area of 78.5 square feet. What is its radius?",
+          "steps": [
+            {
+              "step_number": 1,
+              "instruction": "Write the formula",
+              "work": "A = πr²"
+            },
+            {
+              "step_number": 2,
+              "instruction": "Substitute the area",
+              "work": "78.5 = 3.14 × r²"
+            },
+            {
+              "step_number": 3,
+              "instruction": "Divide both sides by 3.14",
+              "work": "78.5 ÷ 3.14 = r², so 25 = r²"
+            },
+            {
+              "step_number": 4,
+              "instruction": "Take the square root",
+              "work": "r = √25 = 5 feet"
+            }
+          ],
+          "answer": "5 feet"
+        }
+      ],
+      "common_mistakes": [
+        {
+          "mistake": "Using diameter instead of radius in A = πr²",
+          "why_wrong": "If you use diameter, your answer will be 4 times too big!",
+          "how_to_avoid": "ALWAYS check: did they give you radius or diameter? If diameter, divide by 2 first!"
+        },
+        {
+          "mistake": "Forgetting to square the radius",
+          "why_wrong": "A = πr is WRONG for area! That's closer to circumference. Area uses r².",
+          "how_to_avoid": "Remember: Area = π times r SQUARED. Write out A = π × r × r if it helps."
+        },
+        {
+          "mistake": "Squaring after multiplying by π",
+          "why_wrong": "A = (πr)² is wrong! It's A = π × (r²). Square the radius first, then multiply by π.",
+          "how_to_avoid": "Do operations in order: 1) Square r, 2) Multiply by π."
+        },
+        {
+          "mistake": "Mixing up area and circumference formulas",
+          "why_wrong": "Area (inside) = πr². Circumference (around) = 2πr or πd. They're different!",
+          "how_to_avoid": "Area has a square (r²) because it measures square units. Circumference doesn't."
+        }
+      ],
+      "encouragement": "Amazing work! 🎉 You now know everything about proportional relationships AND circles! You can calculate how much fence you need for a circular garden (circumference) AND how much grass seed to buy (area)!"
+    }
+  ]
+}

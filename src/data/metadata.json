@@ -1,0 +1,67 @@
+{
+  "unit_title": "Proportional Relationships",
+  "grade_level": "6th Grade (Accelerated)",
+  "curriculum_source": "Illustrative Mathematics v.360",
+  "total_sections": 6,
+  "estimated_duration": "6-8 days",
+  "description": "This unit helps you understand proportional relationships - how two quantities are connected in a consistent way. You'll learn to write equations, draw graphs, and apply these ideas to circles!",
+  "encouragement_message": "Hey there! 👋 Don't worry if your teacher goes too fast. This guide breaks everything down into small, easy pieces. Take your time, ask questions, and remember: making mistakes is how we learn! You've got this! 💪",
+  "sections": [
+    {
+      "section_id": 1,
+      "title": "What Are Proportional Relationships?",
+      "subtitle": "Understanding the basics",
+      "estimated_time": "1 day",
+      "difficulty": "Foundation"
+    },
+    {
+      "section_id": 2,
+      "title": "The Constant of Proportionality (k)",
+      "subtitle": "Finding the magic multiplier",
+      "estimated_time": "1 day",
+      "difficulty": "Foundation"
+    },
+    {
+      "section_id": 3,
+      "title": "Writing Equations for Proportional Relationships",
+      "subtitle": "Turning words into math symbols",
+      "estimated_time": "1-2 days",
+      "difficulty": "Building"
+    },
+    {
+      "section_id": 4,
+      "title": "Graphing Proportional Relationships",
+      "subtitle": "Drawing the connection",
+      "estimated_time": "1 day",
+      "difficulty": "Building"
+    },
+    {
+      "section_id": 5,
+      "title": "Circles: Circumference",
+      "subtitle": "Measuring around a circle",
+      "estimated_time": "1 day",
+      "difficulty": "Application"
+    },
+    {
+      "section_id": 6,
+      "title": "Circles: Area",
+      "subtitle": "Measuring inside a circle",
+      "estimated_time": "1 day",
+      "difficulty": "Application"
+    }
+  ],
+  "prerequisites": [
+    "Basic multiplication and division",
+    "Understanding of fractions and decimals",
+    "Ability to plot points on a coordinate grid",
+    "Basic understanding of what an equation is"
+  ],
+  "learning_objectives": [
+    "Identify proportional relationships in real-world situations",
+    "Find and use the constant of proportionality",
+    "Write equations in the form y = kx",
+    "Graph proportional relationships and identify key features",
+    "Calculate circumference of circles using C = πd",
+    "Calculate area of circles using A = πr²"
+  ]
+}

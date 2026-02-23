@@ -1,0 +1,207 @@
+{
+  "test_info": {
+    "test_number": 1,
+    "title": "Proportional Relationships & Circles - Test 1",
+    "description": "This test covers all topics from the unit: identifying proportional relationships, finding the constant of proportionality, writing equations, graphing, and working with circles (circumference and area).",
+    "total_questions": 20,
+    "time_suggestion": "45-60 minutes",
+    "difficulty_breakdown": {
+      "easy": 6,
+      "medium": 9,
+      "hard": 5
+    },
+    "encouragement": "You've got this! Take your time, show your work, and remember - it's okay if you don't know every answer. Just do your best! 💪"
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "difficulty": "easy",
+      "section_covered": "What Are Proportional Relationships?",
+      "question": "At a fruit stand, 3 oranges cost $2.25, 6 oranges cost $4.50, and 9 oranges cost $6.75. Is the relationship between the number of oranges and cost proportional?",
+      "options": ["A) Yes", "B) No", "C) Not enough information", "D) Only for 6 oranges"],
+      "correct_answer": "A",
+      "explanation": "Yes! Check the ratios: $2.25 ÷ 3 = $0.75, $4.50 ÷ 6 = $0.75, $6.75 ÷ 9 = $0.75. All equal $0.75 per orange, so it's proportional!"
+    },
+    {
+      "question_number": 2,
+      "difficulty": "easy",
+      "section_covered": "The Constant of Proportionality",
+      "question": "In the equation y = 8x, what is the constant of proportionality?",
+      "options": ["A) x", "B) y", "C) 8", "D) 8x"],
+      "correct_answer": "C",
+      "explanation": "In the form y = kx, the constant of proportionality k is the number multiplied by x. Here, k = 8."
+    },
+    {
+      "question_number": 3,
+      "difficulty": "easy",
+      "section_covered": "Circles: Circumference",
+      "question": "A circle has a radius of 7 inches. What is its diameter?",
+      "options": ["A) 3.5 inches", "B) 7 inches", "C) 14 inches", "D) 49 inches"],
+      "correct_answer": "C",
+      "explanation": "Diameter = 2 × radius = 2 × 7 = 14 inches"
+    },
+    {
+      "question_number": 4,
+      "difficulty": "easy",
+      "section_covered": "Circles: Area",
+      "question": "What is 6² (6 squared)?",
+      "options": ["A) 12", "B) 36", "C) 18", "D) 6"],
+      "correct_answer": "B",
+      "explanation": "6² = 6 × 6 = 36"
+    },
+    {
+      "question_number": 5,
+      "difficulty": "easy",
+      "section_covered": "Graphing Proportional Relationships",
+      "question": "What special point must ALL proportional relationship graphs pass through?",
+      "options": ["A) (1, 1)", "B) (0, 1)", "C) (1, 0)", "D) (0, 0)"],
+      "correct_answer": "D",
+      "explanation": "All proportional relationships pass through the origin (0, 0) because when one quantity is 0, the other must also be 0."
+    },
+    {
+      "question_number": 6,
+      "difficulty": "easy",
+      "section_covered": "Writing Equations",
+      "question": "Which equation represents a proportional relationship?",
+      "options": ["A) y = 2x + 3", "B) y = x²", "C) y = 6x", "D) y = 12/x"],
+      "correct_answer": "C",
+      "explanation": "y = 6x is in the form y = kx (just multiplication). The others have addition, exponents, or division that make them not proportional."
+    },
+    {
+      "question_number": 7,
+      "difficulty": "medium",
+      "section_covered": "The Constant of Proportionality",
+      "question": "A car uses 4 gallons of gas to travel 120 miles. What is the constant of proportionality (miles per gallon)?",
+      "options": ["A) 20 mpg", "B) 30 mpg", "C) 40 mpg", "D) 480 mpg"],
+      "correct_answer": "B",
+      "explanation": "k = miles ÷ gallons = 120 ÷ 4 = 30 miles per gallon"
+    },
+    {
+      "question_number": 8,
+      "difficulty": "medium",
+      "section_covered": "Writing Equations",
+      "question": "A recipe uses 3 cups of flour for every 2 cups of sugar. Write an equation where f = flour and s = sugar.",
+      "options": ["A) f = (3/2)s", "B) f = (2/3)s", "C) s = (3/2)f", "D) f = 3s + 2"],
+      "correct_answer": "A",
+      "explanation": "For every 2 cups sugar, you need 3 cups flour. k = 3/2. So f = (3/2)s. Check: if s = 2, then f = (3/2)(2) = 3 ✓"
+    },
+    {
+      "question_number": 9,
+      "difficulty": "medium",
+      "section_covered": "Circles: Circumference",
+      "question": "Find the circumference of a circle with diameter 20 cm. (Use π ≈ 3.14)",
+      "options": ["A) 31.4 cm", "B) 62.8 cm", "C) 125.6 cm", "D) 1256 cm"],
+      "correct_answer": "B",
+      "explanation": "C = πd = 3.14 × 20 = 62.8 cm"
+    },
+    {
+      "question_number": 10,
+      "difficulty": "medium",
+      "section_covered": "Circles: Area",
+      "question": "Find the area of a circle with radius 4 meters. (Use π ≈ 3.14)",
+      "options": ["A) 12.56 m²", "B) 25.12 m²", "C) 50.24 m²", "D) 200.96 m²"],
+      "correct_answer": "C",
+      "explanation": "A = πr² = 3.14 × 4² = 3.14 × 16 = 50.24 m²"
+    },
+    {
+      "question_number": 11,
+      "difficulty": "medium",
+      "section_covered": "Graphing Proportional Relationships",
+      "question": "A graph shows the point (5, 20). If this is a proportional relationship, what is k?",
+      "options": ["A) k = 0.25", "B) k = 4", "C) k = 5", "D) k = 15"],
+      "correct_answer": "B",
+      "explanation": "k = y ÷ x = 20 ÷ 5 = 4"
+    },
+    {
+      "question_number": 12,
+      "difficulty": "medium",
+      "section_covered": "What Are Proportional Relationships?",
+      "question": "A streaming service costs $10/month plus $3 per movie rented. Is the total monthly cost proportional to the number of movies?",
+      "options": ["A) Yes, because you pay $3 per movie", "B) No, because of the $10 base fee", "C) Yes, because the cost increases", "D) No, because movies vary in length"],
+      "correct_answer": "B",
+      "explanation": "No! The $10 base fee means 0 movies still costs $10 (not $0). This 'starting amount' makes it NOT proportional."
+    },
+    {
+      "question_number": 13,
+      "difficulty": "medium",
+      "section_covered": "Circles: Circumference",
+      "question": "A circular pond has a circumference of 94.2 feet. What is its diameter? (Use π ≈ 3.14)",
+      "options": ["A) 15 feet", "B) 30 feet", "C) 45 feet", "D) 60 feet"],
+      "correct_answer": "B",
+      "explanation": "C = πd, so d = C ÷ π = 94.2 ÷ 3.14 = 30 feet"
+    },
+    {
+      "question_number": 14,
+      "difficulty": "medium",
+      "section_covered": "Circles: Area",
+      "question": "A circular rug has a diameter of 8 feet. What is its area? (Use π ≈ 3.14)",
+      "options": ["A) 25.12 ft²", "B) 50.24 ft²", "C) 100.48 ft²", "D) 200.96 ft²"],
+      "correct_answer": "B",
+      "explanation": "First find radius: r = 8 ÷ 2 = 4 feet. Then A = πr² = 3.14 × 4² = 3.14 × 16 = 50.24 ft²"
+    },
+    {
+      "question_number": 15,
+      "difficulty": "medium",
+      "section_covered": "Writing Equations",
+      "question": "From this table (hours: 2, 5, 8 → earnings: $25, $62.50, $100), find the equation relating earnings (e) to hours (h).",
+      "options": ["A) e = 10h", "B) e = 12.5h", "C) e = 25h", "D) e = h + 23"],
+      "correct_answer": "B",
+      "explanation": "k = earnings ÷ hours = 25 ÷ 2 = 12.5. Verify: 62.50 ÷ 5 = 12.5, 100 ÷ 8 = 12.5 ✓. So e = 12.5h"
+    },
+    {
+      "question_number": 16,
+      "difficulty": "hard",
+      "section_covered": "The Constant of Proportionality",
+      "question": "If y = 36 when x = 9, and the relationship is proportional, find y when x = 15.",
+      "options": ["A) 40", "B) 51", "C) 60", "D) 75"],
+      "correct_answer": "C",
+      "explanation": "First find k: k = 36 ÷ 9 = 4. Then y = 4 × 15 = 60."
+    },
+    {
+      "question_number": 17,
+      "difficulty": "hard",
+      "section_covered": "Graphing Proportional Relationships",
+      "question": "Line A passes through (3, 12) and Line B passes through (6, 12). Both are proportional relationships. Which line is steeper?",
+      "options": ["A) Line A", "B) Line B", "C) They're equally steep", "D) Cannot determine"],
+      "correct_answer": "A",
+      "explanation": "Line A: k = 12 ÷ 3 = 4. Line B: k = 12 ÷ 6 = 2. Larger k means steeper line. Line A (k=4) is steeper than Line B (k=2)."
+    },
+    {
+      "question_number": 18,
+      "difficulty": "hard",
+      "section_covered": "Circles: Circumference",
+      "question": "A wheel makes 5 complete rotations and travels 314 cm. What is the wheel's diameter? (Use π ≈ 3.14)",
+      "options": ["A) 10 cm", "B) 20 cm", "C) 50 cm", "D) 100 cm"],
+      "correct_answer": "B",
+      "explanation": "Total distance = 5 × circumference, so circumference = 314 ÷ 5 = 62.8 cm. Then d = C ÷ π = 62.8 ÷ 3.14 = 20 cm"
+    },
+    {
+      "question_number": 19,
+      "difficulty": "hard",
+      "section_covered": "Circles: Area",
+      "question": "A square has side length 10 cm. A circle with diameter 10 cm is inscribed (fits exactly) inside. What is the area of the square NOT covered by the circle? (Use π ≈ 3.14)",
+      "options": ["A) 21.5 cm²", "B) 100 - 25π cm²", "C) 78.5 cm²", "D) Both A and B"],
+      "correct_answer": "D",
+      "explanation": "Square area: 10 × 10 = 100 cm². Circle: r = 5, A = π × 5² = 25π ≈ 78.5 cm². Remaining: 100 - 78.5 = 21.5 cm² or 100 - 25π cm²"
+    },
+    {
+      "question_number": 20,
+      "difficulty": "hard",
+      "section_covered": "Writing Equations",
+      "question": "The circumference of a circle is C = πd. Is this a proportional relationship between C and d? If so, what is k?",
+      "options": ["A) Not proportional", "B) Proportional, k = d", "C) Proportional, k = π (approximately 3.14)", "D) Proportional, k = C"],
+      "correct_answer": "C",
+      "explanation": "C = πd follows the y = kx pattern with C as y, d as x, and k = π ≈ 3.14. Yes, it's proportional! For every diameter, circumference is π times larger."
+    }
+  ],
+  "answer_key_summary": {
+    "answers": ["A", "C", "C", "B", "D", "C", "B", "A", "B", "C", "B", "B", "B", "B", "B", "C", "A", "B", "D", "C"],
+    "score_guide": {
+      "18-20": "Outstanding! You've mastered proportional relationships and circles! 🌟",
+      "15-17": "Great job! You understand most concepts well. Review the ones you missed.",
+      "12-14": "Good effort! You're getting there. Practice the topics you found tricky.",
+      "9-11": "You're making progress! Focus on understanding the basics before moving on.",
+      "0-8": "Keep practicing! Go back to the lesson sections and try the examples again. You'll get better!"
+    }
+  }
+}
