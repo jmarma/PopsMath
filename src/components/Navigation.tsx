@@ -2,6 +2,14 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import metadata from '@/data/metadata.json';
+
+const unitNumber = metadata.unit_number;
+const unitTitle = metadata.unit_title;
+const sections = metadata.sections.map((s) => ({
+  id: s.section_id,
+  title: s.title,
+}));
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +21,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center gap-2">
             <span className="text-3xl">🧮</span>
             <span className="font-bold text-xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Chloe's Math Lab
+              Chloe&apos;s Math Lab
             </span>
           </Link>
 
@@ -24,16 +32,19 @@ export default function Navigation() {
             </Link>
             <div className="relative group">
               <button className="text-gray-600 hover:text-indigo-600 font-medium transition-colors flex items-center gap-1">
-                Sections <span className="text-xs">▼</span>
+                Unit {unitNumber} <span className="text-xs">▼</span>
               </button>
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+                <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase border-b mb-1">
+                  Unit {unitNumber}: {unitTitle}
+                </div>
+                {sections.map((s) => (
                   <Link
-                    key={i}
-                    href={`/section/${i}`}
-                    className="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                    key={s.id}
+                    href={`/section/${s.id}`}
+                    className="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors text-sm"
                   >
-                    Section {i}
+                    <span className="font-semibold">{s.id}.</span> {s.title}
                   </Link>
                 ))}
               </div>
@@ -75,15 +86,15 @@ export default function Navigation() {
               Home
             </Link>
             <div className="py-2">
-              <span className="text-sm font-semibold text-gray-400 uppercase">Sections</span>
-              {[1, 2, 3, 4, 5, 6].map((i) => (
+              <span className="text-sm font-semibold text-gray-400 uppercase">Unit {unitNumber}: {unitTitle}</span>
+              {sections.map((s) => (
                 <Link
-                  key={i}
-                  href={`/section/${i}`}
-                  className="block py-2 pl-4 text-gray-600 hover:text-indigo-600"
+                  key={s.id}
+                  href={`/section/${s.id}`}
+                  className="block py-2 pl-4 text-gray-600 hover:text-indigo-600 text-sm"
                   onClick={() => setIsOpen(false)}
                 >
-                  Section {i}
+                  <span className="font-semibold">{s.id}.</span> {s.title}
                 </Link>
               ))}
             </div>

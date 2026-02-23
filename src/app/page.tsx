@@ -2,19 +2,23 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { getProgress } from '@/lib/progress';
+import { getProgress, allPracticeComplete } from '@/lib/progress';
 import metadata from '@/data/metadata.json';
+import practiceQuestions from '@/data/practice_questions.json';
 
 export default function Home() {
   const [progress, setProgress] = useState({ sectionsCompleted: [] as number[], practiceScores: {} as Record<string, { correct: number; total: number }>, testScores: {} as Record<string, number> });
   const [mounted, setMounted] = useState(false);
+  const [testsUnlocked, setTestsUnlocked] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     setProgress(getProgress());
+    setTestsUnlocked(allPracticeComplete());
   }, []);
 
-  const completionPercent = mounted ? Math.round((progress.sectionsCompleted.length / 6) * 100) : 0;
+  const totalSections = metadata.total_sections;
+  const completionPercent = mounted ? Math.round((progress.sectionsCompleted.length / totalSections) * 100) : 0;
 
   const getDifficultyColor = (diff: string) => {
     if (diff === 'Foundation') return 'bg-green-100 text-green-700';
@@ -22,11 +26,21 @@ export default function Home() {
     return 'bg-purple-100 text-purple-700';
   };
 
+  // Count how many sections have perfect practice scores
+  const perfectPracticeSections = mounted ? metadata.sections.filter((section) => {
+    const score = progress.practiceScores[section.section_id.toString()];
+    const sectionData = practiceQuestions.sections.find(s => s.section_id === section.section_id);
+    return score && sectionData && score.correct >= sectionData.questions.length;
+  }).length : 0;
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Hero Section */}
       <div className="card mb-8 text-center fade-in">
         <div className="text-6xl mb-4 emoji-bounce">🎯</div>
+        <p className="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">
+          Unit {metadata.unit_number} • {metadata.grade_level}
+        </p>
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
           {metadata.unit_title}
         </h1>
@@ -48,7 +62,7 @@ export default function Home() {
           <div className="progress-fill" style={{ width: `${completionPercent}%` }} />
         </div>
         <p className="text-gray-500 text-sm">
-          {mounted ? `${progress.sectionsCompleted.length} of 6 sections completed` : 'Loading...'}
+          {mounted ? `${progress.sectionsCompleted.length} of ${totalSections} sections completed` : 'Loading...'}
         </p>
 
         {mounted && Object.keys(progress.testScores).length > 0 && (
@@ -64,14 +78,24 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        {mounted && (
+          <div className="mt-4 pt-4 border-t">
+            <p className="text-xs text-gray-400">
+              💾 Your progress is saved in this browser. Use the same browser and device to keep your progress.
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Sections Grid */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">📚 Course Sections</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">📚 Unit {metadata.unit_number} Sections</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {metadata.sections.map((section, index) => {
           const isCompleted = mounted && progress.sectionsCompleted.includes(section.section_id);
           const practiceScore = mounted ? progress.practiceScores[section.section_id.toString()] : null;
+          const sectionData = practiceQuestions.sections.find(s => s.section_id === section.section_id);
+          const isPracticePerfect = practiceScore && sectionData && practiceScore.correct >= sectionData.questions.length;
           
           return (
             <Link
@@ -89,7 +113,7 @@ export default function Home() {
                 )}
               </div>
               <h3 className="font-bold text-lg text-gray-800 group-hover:text-indigo-600 transition-colors mb-1">
-                Section {section.section_id}: {section.title}
+                {section.section_id}. {section.title}
               </h3>
               <p className="text-gray-500 text-sm mb-3">{section.subtitle}</p>
               <div className="flex items-center gap-2 flex-wrap">
@@ -100,7 +124,10 @@ export default function Home() {
               </div>
               {practiceScore && (
                 <div className="mt-3 pt-3 border-t text-sm text-gray-600">
-                  Practice: <span className="font-semibold text-indigo-600">{practiceScore.correct}/{practiceScore.total}</span>
+                  Practice: <span className={`font-semibold ${isPracticePerfect ? 'text-green-600' : 'text-indigo-600'}`}>
+                    {practiceScore.correct}/{practiceScore.total}
+                    {isPracticePerfect && ' ✓'}
+                  </span>
                 </div>
               )}
             </Link>
@@ -109,7 +136,15 @@ export default function Home() {
       </div>
 
       {/* Tests Section */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">📝 Sample Tests</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">📝 Unit Tests</h2>
+      {mounted && !testsUnlocked && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4 fade-in">
+          <p className="text-amber-700 text-sm font-medium">
+            🔒 Tests unlock when you get a perfect score on all {totalSections} section practice sets.
+            <span className="ml-2 text-amber-600">({perfectPracticeSections}/{totalSections} complete)</span>
+          </p>
+        </div>
+      )}
       <div className="grid md:grid-cols-2 gap-4 mb-8">
         {[1, 2].map((testNum) => {
           const testScore = mounted ? progress.testScores[testNum.toString()] : null;
@@ -117,16 +152,23 @@ export default function Home() {
             <Link
               key={testNum}
               href={`/test/${testNum}`}
-              className="card group hover:border-purple-300 border-2 border-transparent fade-in"
+              className={`card group border-2 border-transparent fade-in ${
+                mounted && testsUnlocked
+                  ? 'hover:border-purple-300'
+                  : 'opacity-60 pointer-events-none'
+              }`}
               style={{ animationDelay: `${0.4 + testNum * 0.05}s` }}
+              aria-disabled={mounted && !testsUnlocked}
             >
               <div className="flex items-center gap-4">
-                <span className="text-4xl">🔒</span>
+                <span className="text-4xl">{mounted && testsUnlocked ? '📝' : '🔒'}</span>
                 <div className="flex-1">
                   <h3 className="font-bold text-lg text-gray-800 group-hover:text-purple-600 transition-colors">
                     Test {testNum}
                   </h3>
-                  <p className="text-gray-500 text-sm">20 questions • Password protected</p>
+                  <p className="text-gray-500 text-sm">
+                    20 questions {mounted && !testsUnlocked && '• Complete all practice first'}
+                  </p>
                   {testScore !== null && testScore !== undefined && (
                     <p className="text-sm mt-1">
                       Best Score: <span className="font-bold text-green-600">{testScore}/20</span>
