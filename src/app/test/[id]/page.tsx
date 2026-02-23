@@ -7,7 +7,7 @@ import { saveTestScore, getProgress } from '@/lib/progress';
 import test1 from '@/data/test_1.json';
 import test2 from '@/data/test_2.json';
 
-const TEST_PASSWORD = 'PopsMath2024';
+const EXPLANATION_PASSWORD = 'PopsMath2024';
 
 interface TestQuestion {
   question_number: number;
@@ -39,9 +39,6 @@ export default function TestPage() {
   const params = useParams();
   const testId = parseInt(params.id as string);
   
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [password, setPassword] = useState('');
-  const [passwordError, setPasswordError] = useState(false);
   const [viewMode, setViewMode] = useState<'all' | 'one'>('one');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -49,6 +46,14 @@ export default function TestPage() {
   const [score, setScore] = useState(0);
   const [previousBestScore, setPreviousBestScore] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
+  
+  // New states for retry flow
+  const [showingRetry, setShowingRetry] = useState(false);
+  const [retryAnswers, setRetryAnswers] = useState<Record<number, string>>({});
+  const [retryScore, setRetryScore] = useState(0);
+  const [showExplanations, setShowExplanations] = useState(false);
+  const [explanationPassword, setExplanationPassword] = useState('');
+  const [explanationPasswordError, setExplanationPasswordError] = useState(false);
 
   const testData = (testId === 1 ? test1 : test2) as TestData;
   const questions = testData.questions;
@@ -62,18 +67,12 @@ export default function TestPage() {
     }
   }, [testId]);
 
-  const handlePasswordSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === TEST_PASSWORD) {
-      setIsUnlocked(true);
-      setPasswordError(false);
-    } else {
-      setPasswordError(true);
-    }
-  };
-
   const handleAnswer = (questionNum: number, answer: string) => {
     setAnswers(prev => ({ ...prev, [questionNum]: answer }));
+  };
+
+  const handleRetryAnswer = (questionNum: number, answer: string) => {
+    setRetryAnswers(prev => ({ ...prev, [questionNum]: answer }));
   };
 
   const handleSubmit = () => {
@@ -94,8 +93,39 @@ export default function TestPage() {
     }
   };
 
-  const getScoreMessage = () => {
-    const percentage = (score / 20) * 100;
+  const handleRetrySubmit = () => {
+    let correctCount = score; // Start with original correct answers
+    const incorrectQuestions = questions.filter(q => answers[q.question_number] !== q.correct_answer);
+    
+    incorrectQuestions.forEach(q => {
+      if (retryAnswers[q.question_number] === q.correct_answer) {
+        correctCount++;
+      }
+    });
+    
+    setRetryScore(correctCount);
+    setShowingRetry(false);
+    
+    // Save updated score if it's better
+    const progress = getProgress();
+    const prevScore = progress.testScores[testId.toString()];
+    if (prevScore === undefined || correctCount > prevScore) {
+      saveTestScore(testId, correctCount);
+    }
+  };
+
+  const handleExplanationPasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (explanationPassword === EXPLANATION_PASSWORD) {
+      setShowExplanations(true);
+      setExplanationPasswordError(false);
+    } else {
+      setExplanationPasswordError(true);
+    }
+  };
+
+  const getScoreMessage = (currentScore: number) => {
+    const percentage = (currentScore / 20) * 100;
     if (percentage >= 90) return testData.answer_key_summary.score_guide['18-20'];
     if (percentage >= 75) return testData.answer_key_summary.score_guide['15-17'];
     if (percentage >= 60) return testData.answer_key_summary.score_guide['12-14'];
@@ -113,62 +143,11 @@ export default function TestPage() {
   };
 
   const answeredCount = Object.keys(answers).length;
+  const incorrectQuestions = questions.filter(q => answers[q.question_number] !== q.correct_answer);
+  const retryAnsweredCount = Object.keys(retryAnswers).length;
 
-  // Password Screen
-  if (!isUnlocked) {
-    return (
-      <div className="max-w-md mx-auto px-4 py-16">
-        <div className="card text-center fade-in">
-          <span className="text-6xl mb-4 block">🔒</span>
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">{testData.test_info.title}</h1>
-          <p className="text-gray-600 mb-6">{testData.test_info.description}</p>
-          
-          {mounted && previousBestScore !== null && (
-            <div className="bg-green-50 rounded-lg p-3 mb-6">
-              <p className="text-green-700">Your previous best score: <strong>{previousBestScore}/20</strong></p>
-            </div>
-          )}
-
-          <form onSubmit={handlePasswordSubmit}>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-medium mb-2">Enter Password to Begin</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-                  passwordError ? 'border-red-400' : 'border-gray-200'
-                }`}
-                placeholder="Enter password..."
-              />
-              {passwordError && (
-                <p className="text-red-500 text-sm mt-2">Incorrect password. Please try again.</p>
-              )}
-            </div>
-            <button type="submit" className="btn-primary w-full">
-              Unlock Test
-            </button>
-          </form>
-
-          <div className="mt-6 pt-6 border-t text-left">
-            <h3 className="font-semibold text-gray-700 mb-2">Test Info:</h3>
-            <ul className="text-sm text-gray-600 space-y-1">
-              <li>• {testData.test_info.total_questions} questions</li>
-              <li>• Suggested time: {testData.test_info.time_suggestion}</li>
-              <li>• Covers all 6 sections</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="text-center mt-4">
-          <Link href="/" className="text-indigo-600 hover:underline">← Back to Home</Link>
-        </div>
-      </div>
-    );
-  }
-
-  // Results Screen
-  if (isSubmitted) {
+  // Initial Results Screen (after first submission, before retry)
+  if (isSubmitted && !showingRetry && retryScore === 0) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="card text-center mb-8 fade-in">
@@ -177,7 +156,7 @@ export default function TestPage() {
           <div className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
             {score} / 20
           </div>
-          <p className="text-lg text-gray-600 mb-4">{getScoreMessage()}</p>
+          <p className="text-lg text-gray-600 mb-4">{getScoreMessage(score)}</p>
           
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="bg-green-50 rounded-lg p-3">
@@ -193,9 +172,23 @@ export default function TestPage() {
               <p className="text-sm text-indigo-700">Score</p>
             </div>
           </div>
+
+          {incorrectQuestions.length > 0 && (
+            <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4 mb-4">
+              <p className="text-yellow-800 font-medium mb-2">
+                💡 Want to try again? You can retry the questions you got wrong!
+              </p>
+              <button
+                onClick={() => setShowingRetry(true)}
+                className="btn-primary mt-2"
+              >
+                Retry Incorrect Questions ({incorrectQuestions.length})
+              </button>
+            </div>
+          )}
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">📝 Detailed Results</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">📝 Your Results</h2>
         <div className="space-y-4">
           {questions.map((q) => {
             const userAnswer = answers[q.question_number];
@@ -221,28 +214,25 @@ export default function TestPage() {
                   {q.options.map((option, i) => {
                     const optionLetter = option.charAt(0);
                     const isUserAnswer = userAnswer === optionLetter;
-                    const isCorrectAnswer = optionLetter === q.correct_answer;
                     
                     let styles = 'border border-gray-200 bg-white';
-                    if (isCorrectAnswer) {
-                      styles = 'border-2 border-green-500 bg-green-50';
-                    } else if (isUserAnswer) {
+                    if (isUserAnswer && !isCorrect) {
                       styles = 'border-2 border-red-500 bg-red-50';
+                    } else if (isUserAnswer && isCorrect) {
+                      styles = 'border-2 border-green-500 bg-green-50';
                     }
                     
                     return (
                       <div key={i} className={`p-3 rounded-lg ${styles}`}>
                         {option}
-                        {isCorrectAnswer && <span className="float-right text-green-600 font-medium">✓ Correct</span>}
-                        {isUserAnswer && !isCorrectAnswer && <span className="float-right text-red-600 font-medium">Your answer</span>}
+                        {isUserAnswer && <span className="float-right text-gray-600 font-medium">Your answer</span>}
                       </div>
                     );
                   })}
                 </div>
 
-                <div className="bg-blue-50 rounded-lg p-4">
-                  <p className="text-sm text-gray-500 mb-1">Section: {q.section_covered}</p>
-                  <p className="text-blue-800"><strong>Explanation:</strong> {q.explanation}</p>
+                <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-600">
+                  <p>Section: {q.section_covered}</p>
                 </div>
               </div>
             );
@@ -259,7 +249,244 @@ export default function TestPage() {
     );
   }
 
-  // Test Taking Screen
+  // Retry Screen
+  if (showingRetry) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="card mb-6 fade-in">
+          <h1 className="text-2xl font-bold text-gray-800 mb-2">🔄 Retry Incorrect Questions</h1>
+          <p className="text-gray-600 mb-4">
+            Try these {incorrectQuestions.length} questions again. Take your time and think carefully!
+          </p>
+          <div className="bg-blue-50 rounded-lg p-3">
+            <p className="text-blue-800">
+              <strong>Current Score:</strong> {score}/20 • 
+              <strong className="ml-2">Questions to Retry:</strong> {incorrectQuestions.length}
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4 fade-in">
+          {incorrectQuestions.map((q) => {
+            const originalAnswer = answers[q.question_number];
+            const retryAnswer = retryAnswers[q.question_number];
+            
+            return (
+              <div key={q.question_number} className="card border-l-4 border-yellow-500">
+                <div className="flex items-start justify-between mb-3">
+                  <span className="text-gray-500 font-medium">Question {q.question_number}</span>
+                  <span className={getDifficultyBadge(q.difficulty)}>{q.difficulty}</span>
+                </div>
+                <p className="text-gray-800 font-medium mb-4 whitespace-pre-line">{q.question}</p>
+                
+                <div className="space-y-2">
+                  {q.options.map((option, i) => {
+                    const optionLetter = option.charAt(0);
+                    const isOriginalAnswer = originalAnswer === optionLetter;
+                    const isRetrySelected = retryAnswer === optionLetter;
+                    
+                    let styles = 'border-2 transition-all';
+                    if (isRetrySelected) {
+                      styles += ' border-indigo-500 bg-indigo-50';
+                    } else if (isOriginalAnswer) {
+                      styles += ' border-red-300 bg-red-50 opacity-60';
+                    } else {
+                      styles += ' border-gray-200 hover:border-indigo-300 bg-white';
+                    }
+                    
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => handleRetryAnswer(q.question_number, optionLetter)}
+                        className={`w-full text-left p-3 rounded-lg ${styles}`}
+                      >
+                        {option}
+                        {isOriginalAnswer && (
+                          <span className="float-right text-red-600 text-sm">Previous answer</span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="card text-center mt-6">
+          <button
+            onClick={handleRetrySubmit}
+            disabled={retryAnsweredCount < incorrectQuestions.length}
+            className="btn-primary text-lg disabled:opacity-50 mr-4"
+          >
+            Submit Retry ({retryAnsweredCount}/{incorrectQuestions.length} answered)
+          </button>
+          <button
+            onClick={() => setShowingRetry(false)}
+            className="btn-secondary"
+          >
+            Cancel
+          </button>
+          {retryAnsweredCount < incorrectQuestions.length && (
+            <p className="text-gray-500 mt-2">Please answer all retry questions before submitting</p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Final Results Screen (after retry or if skipped retry)
+  if (isSubmitted && retryScore > 0) {
+    const finalScore = retryScore;
+    const improvement = finalScore - score;
+    
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="card text-center mb-8 fade-in">
+          <span className="text-6xl mb-4 block">
+            {improvement > 0 ? '🎉' : finalScore >= 15 ? '🎉' : finalScore >= 10 ? '👍' : '💪'}
+          </span>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            {improvement > 0 ? 'Great Improvement!' : 'Final Results'}
+          </h1>
+          
+          {improvement > 0 && (
+            <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-4">
+              <p className="text-green-800 font-medium text-lg">
+                You improved by {improvement} question{improvement > 1 ? 's' : ''}! 🌟
+              </p>
+            </div>
+          )}
+          
+          <div className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            {finalScore} / 20
+          </div>
+          <p className="text-lg text-gray-600 mb-4">{getScoreMessage(finalScore)}</p>
+          
+          <div className="grid grid-cols-3 gap-4 mb-6">
+            <div className="bg-green-50 rounded-lg p-3">
+              <p className="text-2xl font-bold text-green-600">{finalScore}</p>
+              <p className="text-sm text-green-700">Final Correct</p>
+            </div>
+            <div className="bg-blue-50 rounded-lg p-3">
+              <p className="text-2xl font-bold text-blue-600">{score}</p>
+              <p className="text-sm text-blue-700">First Try</p>
+            </div>
+            <div className="bg-indigo-50 rounded-lg p-3">
+              <p className="text-2xl font-bold text-indigo-600">{Math.round((finalScore / 20) * 100)}%</p>
+              <p className="text-sm text-indigo-700">Final Score</p>
+            </div>
+          </div>
+        </div>
+
+        {!showExplanations ? (
+          <div className="card mb-8 fade-in">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">🔒 View Detailed Explanations</h2>
+              <p className="text-gray-600 mb-6">
+                Enter the password to see detailed explanations for all questions
+              </p>
+              
+              <form onSubmit={handleExplanationPasswordSubmit} className="max-w-md mx-auto">
+                <div className="mb-4">
+                  <input
+                    type="password"
+                    value={explanationPassword}
+                    onChange={(e) => setExplanationPassword(e.target.value)}
+                    className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                      explanationPasswordError ? 'border-red-400' : 'border-gray-200'
+                    }`}
+                    placeholder="Enter password..."
+                  />
+                  {explanationPasswordError && (
+                    <p className="text-red-500 text-sm mt-2">Incorrect password. Please try again.</p>
+                  )}
+                </div>
+                <button type="submit" className="btn-primary w-full">
+                  View Explanations
+                </button>
+              </form>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">📝 Detailed Results with Explanations</h2>
+            <div className="space-y-4">
+              {questions.map((q) => {
+                const originalAnswer = answers[q.question_number];
+                const wasOriginallyCorrect = originalAnswer === q.correct_answer;
+                const retryAnswer = retryAnswers[q.question_number];
+                const finalAnswer = retryAnswer || originalAnswer;
+                const isFinalCorrect = finalAnswer === q.correct_answer;
+                
+                return (
+                  <div
+                    key={q.question_number}
+                    className={`card ${isFinalCorrect ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'}`}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <span className="text-gray-500 font-medium">Question {q.question_number}</span>
+                      <div className="flex gap-2">
+                        <span className={getDifficultyBadge(q.difficulty)}>{q.difficulty}</span>
+                        {!wasOriginallyCorrect && retryAnswer && (
+                          <span className="text-blue-600 font-medium text-sm">Retried</span>
+                        )}
+                        <span className={isFinalCorrect ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>
+                          {isFinalCorrect ? '✓ Correct' : '✗ Incorrect'}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-gray-800 font-medium mb-3 whitespace-pre-line">{q.question}</p>
+                    
+                    <div className="space-y-2 mb-4">
+                      {q.options.map((option, i) => {
+                        const optionLetter = option.charAt(0);
+                        const isCorrectAnswer = optionLetter === q.correct_answer;
+                        const isFinalAnswer = finalAnswer === optionLetter;
+                        const isOriginalAnswer = originalAnswer === optionLetter && !wasOriginallyCorrect;
+                        
+                        let styles = 'border border-gray-200 bg-white';
+                        if (isCorrectAnswer) {
+                          styles = 'border-2 border-green-500 bg-green-50';
+                        } else if (isFinalAnswer && !isFinalCorrect) {
+                          styles = 'border-2 border-red-500 bg-red-50';
+                        } else if (isOriginalAnswer && retryAnswer) {
+                          styles = 'border border-red-300 bg-red-50 opacity-50';
+                        }
+                        
+                        return (
+                          <div key={i} className={`p-3 rounded-lg ${styles}`}>
+                            {option}
+                            {isCorrectAnswer && <span className="float-right text-green-600 font-medium">✓ Correct Answer</span>}
+                            {isFinalAnswer && !isFinalCorrect && <span className="float-right text-red-600 font-medium">Your final answer</span>}
+                            {isOriginalAnswer && retryAnswer && <span className="float-right text-red-400 text-sm">First try</span>}
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="bg-blue-50 rounded-lg p-4">
+                      <p className="text-sm text-gray-500 mb-1">Section: {q.section_covered}</p>
+                      <p className="text-blue-800"><strong>Explanation:</strong> {q.explanation}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+
+        <div className="flex justify-center gap-4 mt-8">
+          <Link href="/" className="btn-secondary">Back to Home</Link>
+          <button onClick={() => window.location.reload()} className="btn-primary">
+            Retake Test
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Test Taking Screen (no password required)
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Header */}
@@ -267,7 +494,8 @@ export default function TestPage() {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-800">{testData.test_info.title}</h1>
-            <p className="text-gray-600">{testData.test_info.time_suggestion}</p>
+            <p className="text-gray-600">{testData.test_info.description}</p>
+            <p className="text-gray-500 text-sm mt-1">{testData.test_info.time_suggestion}</p>
           </div>
           <div className="text-right">
             <p className="text-lg font-semibold text-indigo-600">{answeredCount} / 20 answered</p>
@@ -276,6 +504,12 @@ export default function TestPage() {
             </div>
           </div>
         </div>
+
+        {mounted && previousBestScore !== null && (
+          <div className="bg-green-50 rounded-lg p-3 mt-4">
+            <p className="text-green-700">Your previous best score: <strong>{previousBestScore}/20</strong></p>
+          </div>
+        )}
 
         <div className="flex gap-4 mt-4">
           <button
