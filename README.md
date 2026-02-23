@@ -1,4 +1,4 @@
-# 🧮 PopsMath - Interactive Math Learning Website
+# 🧮 Chloe's Math Lab - Interactive Math Learning Website
 
 An engaging, interactive math learning website for 6th graders to study **Proportional Relationships** and **Circles**.
 
@@ -47,7 +47,7 @@ An engaging, interactive math learning website for 6th graders to study **Propor
 
 ### Option 1: One-Click Deploy
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jmarma/PopsMath)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jmarma/pops_math)
 
 ### Option 2: Manual Deploy
 
@@ -73,8 +73,8 @@ An engaging, interactive math learning website for 6th graders to study **Propor
 
 ```bash
 # Clone the repository
-git clone https://github.com/jmarma/PopsMath.git
-cd PopsMath
+git clone https://github.com/jmarma/pops_math.git
+cd pops_math
 
 # Install dependencies
 npm install
@@ -98,7 +98,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-PopsMath/
+Chloe's Math Lab/
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx              # Homepage

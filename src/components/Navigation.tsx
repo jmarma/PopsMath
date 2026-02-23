@@ -13,7 +13,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center gap-2">
             <span className="text-3xl">🧮</span>
             <span className="font-bold text-xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              PopsMath
+              Chloe's Math Lab
             </span>
           </Link>
 
