@@ -50,7 +50,7 @@ export default function TestPage() {
   const [previousBestScore, setPreviousBestScore] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
 
-  const testData: TestData = testId === 1 ? test1 : test2;
+  const testData = (testId === 1 ? test1 : test2) as TestData;
   const questions = testData.questions;
 
   useEffect(() => {
