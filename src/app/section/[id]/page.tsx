@@ -3,10 +3,12 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { markSectionComplete, savePracticeScore, getProgress } from '@/lib/progress';
+import { markSectionComplete, savePracticeScore, resetPracticeScore, getProgress } from '@/lib/progress';
 import lessonPlan from '@/data/lesson_plan.json';
 import practiceQuestions from '@/data/practice_questions.json';
 import metadata from '@/data/metadata.json';
+import MathText from '@/components/MathText';
+import { ProportionalGraphDiagram, CircumferenceDiagram, AreaDiagram } from '@/components/MathDiagrams';
 
 interface Question {
   id: string;
@@ -16,6 +18,12 @@ interface Question {
   correct_answer: string;
   explanation: string;
 }
+
+const sectionDiagrams: Record<number, React.ReactNode> = {
+  4: <ProportionalGraphDiagram />,
+  5: <CircumferenceDiagram />,
+  6: <AreaDiagram />,
+};
 
 export default function SectionPage() {
   const params = useParams();
@@ -30,6 +38,7 @@ export default function SectionPage() {
   const lesson = lessonPlan.sections.find(s => s.section_id === sectionId);
   const sectionQuestions = practiceQuestions.sections.find(s => s.section_id === sectionId);
   const sectionMeta = metadata.sections.find(s => s.section_id === sectionId);
+  const totalSections = metadata.total_sections;
 
   useEffect(() => {
     setMounted(true);
@@ -64,6 +73,12 @@ export default function SectionPage() {
     savePracticeScore(sectionId, correctCount, answeredQuestions.length);
   };
 
+  const handleResetPractice = () => {
+    setAnswers({});
+    setShowResults({});
+    resetPracticeScore(sectionId);
+  };
+
   const handleMarkComplete = () => {
     markSectionComplete(sectionId);
     setIsCompleted(true);
@@ -83,6 +98,7 @@ export default function SectionPage() {
     const q = questions.find(question => question.id === qId);
     return q && answers[qId] === q.correct_answer;
   }).length;
+  const allCorrect = answeredCount === questions.length && correctCount === questions.length;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -90,6 +106,8 @@ export default function SectionPage() {
       <div className="card mb-6 fade-in">
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
           <Link href="/" className="hover:text-indigo-600">Home</Link>
+          <span>/</span>
+          <span>Unit {metadata.unit_number}</span>
           <span>/</span>
           <span>Section {sectionId}</span>
         </div>
@@ -144,17 +162,31 @@ export default function SectionPage() {
             <p className="text-gray-700 leading-relaxed">{lesson.introduction.overview}</p>
           </div>
 
+          {/* Section-specific diagram */}
+          {sectionDiagrams[sectionId] && (
+            <div className="card">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">📊 Visual Guide</h2>
+              {sectionDiagrams[sectionId]}
+            </div>
+          )}
+
           {/* Key Concepts */}
           <div className="card">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">💡 Key Concepts</h2>
             <div className="space-y-6">
               {lesson.key_concepts.map((concept, i) => (
                 <div key={i} className="border-l-4 border-indigo-400 pl-4">
-                  <h3 className="font-bold text-lg text-indigo-600 mb-2">{concept.concept}</h3>
-                  <p className="text-gray-700 mb-3">{concept.simple_explanation}</p>
+                  <h3 className="font-bold text-lg text-indigo-600 mb-2">
+                    <MathText text={concept.concept} />
+                  </h3>
+                  <p className="text-gray-700 mb-3">
+                    <MathText text={concept.simple_explanation} />
+                  </p>
                   <div className="bg-green-50 rounded-lg p-3 mb-2">
                     <p className="text-sm font-medium text-green-700">📌 Real Example:</p>
-                    <p className="text-green-800">{concept.real_world_example}</p>
+                    <p className="text-green-800">
+                      <MathText text={concept.real_world_example} />
+                    </p>
                   </div>
                   <p className="text-sm text-gray-500 italic">💭 {concept.visual_description}</p>
                 </div>
@@ -170,7 +202,9 @@ export default function SectionPage() {
                 <div key={i} className="bg-gray-50 rounded-xl p-5">
                   <h3 className="font-bold text-lg text-gray-800 mb-3">{example.title}</h3>
                   <div className="bg-yellow-50 rounded-lg p-3 mb-4">
-                    <p className="font-medium text-yellow-800">📋 Problem: {example.problem}</p>
+                    <p className="font-medium text-yellow-800">
+                      📋 Problem: <MathText text={example.problem} />
+                    </p>
                   </div>
                   <div className="space-y-3 mb-4">
                     {example.steps.map((step) => (
@@ -179,16 +213,20 @@ export default function SectionPage() {
                           {step.step_number}
                         </span>
                         <div>
-                          <p className="font-medium text-gray-700">{step.instruction}</p>
+                          <p className="font-medium text-gray-700">
+                            <MathText text={step.instruction} />
+                          </p>
                           <p className="text-indigo-600 font-mono bg-indigo-50 rounded px-2 py-1 mt-1 inline-block">
-                            {step.work}
+                            <MathText text={step.work} />
                           </p>
                         </div>
                       </div>
                     ))}
                   </div>
                   <div className="bg-green-100 rounded-lg p-3">
-                    <p className="font-bold text-green-700">✅ Answer: {example.answer}</p>
+                    <p className="font-bold text-green-700">
+                      ✅ Answer: <MathText text={example.answer} />
+                    </p>
                   </div>
                 </div>
               ))}
@@ -242,6 +280,26 @@ export default function SectionPage() {
               <div className="progress-bar mt-2">
                 <div className="progress-fill" style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
               </div>
+              {answeredCount === questions.length && !allCorrect && (
+                <div className="mt-3 pt-3 border-t flex items-center justify-between">
+                  <p className="text-sm text-gray-500">
+                    Got some wrong? Review the lesson and try again!
+                  </p>
+                  <button
+                    onClick={handleResetPractice}
+                    className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors px-3 py-1 rounded-lg hover:bg-indigo-50"
+                  >
+                    🔄 Try Again
+                  </button>
+                </div>
+              )}
+              {allCorrect && (
+                <div className="mt-3 pt-3 border-t">
+                  <p className="text-sm text-green-600 font-semibold">
+                    🎉 Perfect score! You&apos;ve mastered this section!
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -260,7 +318,9 @@ export default function SectionPage() {
                   <span className="text-gray-400 font-medium">Question {index + 1}</span>
                   <span className={getDifficultyBadge(q.difficulty)}>{q.difficulty}</span>
                 </div>
-                <p className="text-gray-800 font-medium mb-4 whitespace-pre-line">{q.question}</p>
+                <p className="text-gray-800 font-medium mb-4 whitespace-pre-line">
+                  <MathText text={q.question} />
+                </p>
                 
                 <div className="space-y-2 mb-4">
                   {q.options.map((option, optIndex) => {
@@ -286,7 +346,7 @@ export default function SectionPage() {
                         disabled={isAnswered}
                         className={`w-full text-left p-3 rounded-lg transition-all ${optionStyles} ${isAnswered ? 'cursor-default' : 'cursor-pointer'}`}
                       >
-                        {option}
+                        <MathText text={option} />
                         {isAnswered && isCorrectOption && <span className="float-right text-green-600">✓</span>}
                         {isAnswered && isSelected && !isCorrectOption && <span className="float-right text-red-600">✗</span>}
                       </button>
@@ -308,7 +368,9 @@ export default function SectionPage() {
                     <p className="font-bold mb-2">
                       {isCorrect ? '🎉 Correct!' : '💡 Not quite - here\'s the explanation:'}
                     </p>
-                    <p className="text-gray-700">{q.explanation}</p>
+                    <p className="text-gray-700">
+                      <MathText text={q.explanation} />
+                    </p>
                   </div>
                 )}
               </div>
@@ -333,7 +395,7 @@ export default function SectionPage() {
             ← Previous Section
           </Link>
         ) : <div />}
-        {sectionId < 6 ? (
+        {sectionId < totalSections ? (
           <Link href={`/section/${sectionId + 1}`} className="btn-primary">
             Next Section →
           </Link>

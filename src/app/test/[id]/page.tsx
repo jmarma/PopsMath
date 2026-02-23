@@ -3,9 +3,10 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { saveTestScore, getProgress } from '@/lib/progress';
+import { saveTestScore, getProgress, allPracticeComplete } from '@/lib/progress';
 import test1 from '@/data/test_1.json';
 import test2 from '@/data/test_2.json';
+import MathText from '@/components/MathText';
 
 const EXPLANATION_PASSWORD = 'PopsMath2024';
 
@@ -46,8 +47,9 @@ export default function TestPage() {
   const [score, setScore] = useState(0);
   const [previousBestScore, setPreviousBestScore] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [practiceComplete, setPracticeComplete] = useState(false);
   
-  // New states for retry flow
+  // States for retry flow
   const [showingRetry, setShowingRetry] = useState(false);
   const [retryAnswers, setRetryAnswers] = useState<Record<number, string>>({});
   const [retryScore, setRetryScore] = useState(0);
@@ -65,6 +67,7 @@ export default function TestPage() {
     if (prevScore !== undefined) {
       setPreviousBestScore(prevScore);
     }
+    setPracticeComplete(allPracticeComplete());
   }, [testId]);
 
   const handleAnswer = (questionNum: number, answer: string) => {
@@ -146,6 +149,29 @@ export default function TestPage() {
   const incorrectQuestions = questions.filter(q => answers[q.question_number] !== q.correct_answer);
   const retryAnsweredCount = Object.keys(retryAnswers).length;
 
+  // Locked Screen - practice not complete
+  if (mounted && !practiceComplete) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="card text-center fade-in">
+          <span className="text-6xl mb-4 block">🔒</span>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">{testData.test_info.title}</h1>
+          <p className="text-gray-600 mb-6">{testData.test_info.description}</p>
+          <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-6 max-w-lg mx-auto mb-6">
+            <h2 className="text-lg font-bold text-amber-800 mb-2">Complete All Practice First!</h2>
+            <p className="text-amber-700">
+              You need to get a perfect score on all section practice questions before you can take this test.
+              Go back and make sure you&apos;ve gotten every practice question right!
+            </p>
+          </div>
+          <Link href="/" className="btn-primary">
+            ← Back to Sections
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   // Initial Results Screen (after first submission, before retry)
   if (isSubmitted && !showingRetry && retryScore === 0) {
     return (
@@ -188,56 +214,95 @@ export default function TestPage() {
           )}
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">📝 Your Results</h2>
-        <div className="space-y-4">
-          {questions.map((q) => {
-            const userAnswer = answers[q.question_number];
-            const isCorrect = userAnswer === q.correct_answer;
-            
-            return (
-              <div
-                key={q.question_number}
-                className={`card ${isCorrect ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'}`}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <span className="text-gray-500 font-medium">Question {q.question_number}</span>
-                  <div className="flex gap-2">
-                    <span className={getDifficultyBadge(q.difficulty)}>{q.difficulty}</span>
-                    <span className={isCorrect ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>
-                      {isCorrect ? '✓ Correct' : '✗ Incorrect'}
-                    </span>
-                  </div>
+        {/* Explanation password gate */}
+        {!showExplanations ? (
+          <div className="card mb-8 fade-in">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">🔒 View Explanations &amp; Correct Answers</h2>
+              <p className="text-gray-600 mb-6">
+                Ask your parent for the password to see detailed explanations
+              </p>
+              
+              <form onSubmit={handleExplanationPasswordSubmit} className="max-w-md mx-auto">
+                <div className="mb-4">
+                  <input
+                    type="password"
+                    value={explanationPassword}
+                    onChange={(e) => setExplanationPassword(e.target.value)}
+                    className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                      explanationPasswordError ? 'border-red-400' : 'border-gray-200'
+                    }`}
+                    placeholder="Enter password..."
+                  />
+                  {explanationPasswordError && (
+                    <p className="text-red-500 text-sm mt-2">Incorrect password. Please try again.</p>
+                  )}
                 </div>
-                <p className="text-gray-800 font-medium mb-3 whitespace-pre-line">{q.question}</p>
+                <button type="submit" className="btn-primary w-full">
+                  View Explanations
+                </button>
+              </form>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">📝 Your Results with Explanations</h2>
+            <div className="space-y-4">
+              {questions.map((q) => {
+                const userAnswer = answers[q.question_number];
+                const isCorrect = userAnswer === q.correct_answer;
                 
-                <div className="space-y-2 mb-4">
-                  {q.options.map((option, i) => {
-                    const optionLetter = option.charAt(0);
-                    const isUserAnswer = userAnswer === optionLetter;
-                    
-                    let styles = 'border border-gray-200 bg-white';
-                    if (isUserAnswer && !isCorrect) {
-                      styles = 'border-2 border-red-500 bg-red-50';
-                    } else if (isUserAnswer && isCorrect) {
-                      styles = 'border-2 border-green-500 bg-green-50';
-                    }
-                    
-                    return (
-                      <div key={i} className={`p-3 rounded-lg ${styles}`}>
-                        {option}
-                        {isUserAnswer && <span className="float-right text-gray-600 font-medium">Your answer</span>}
+                return (
+                  <div
+                    key={q.question_number}
+                    className={`card ${isCorrect ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'}`}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <span className="text-gray-500 font-medium">Question {q.question_number}</span>
+                      <div className="flex gap-2">
+                        <span className={getDifficultyBadge(q.difficulty)}>{q.difficulty}</span>
+                        <span className={isCorrect ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>
+                          {isCorrect ? '✓ Correct' : '✗ Incorrect'}
+                        </span>
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                    <p className="text-gray-800 font-medium mb-3 whitespace-pre-line">
+                      <MathText text={q.question} />
+                    </p>
+                    
+                    <div className="space-y-2 mb-4">
+                      {q.options.map((option, i) => {
+                        const optionLetter = option.charAt(0);
+                        const isCorrectAnswer = optionLetter === q.correct_answer;
+                        const isUserAnswer = userAnswer === optionLetter;
+                        
+                        let styles = 'border border-gray-200 bg-white';
+                        if (isCorrectAnswer) {
+                          styles = 'border-2 border-green-500 bg-green-50';
+                        } else if (isUserAnswer && !isCorrect) {
+                          styles = 'border-2 border-red-500 bg-red-50';
+                        }
+                        
+                        return (
+                          <div key={i} className={`p-3 rounded-lg ${styles}`}>
+                            <MathText text={option} />
+                            {isCorrectAnswer && <span className="float-right text-green-600 font-medium">✓ Correct Answer</span>}
+                            {isUserAnswer && !isCorrect && <span className="float-right text-red-600 font-medium">Your answer</span>}
+                          </div>
+                        );
+                      })}
+                    </div>
 
-                <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-600">
-                  <p>Section: {q.section_covered}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                    <div className="bg-blue-50 rounded-lg p-4">
+                      <p className="text-sm text-gray-500 mb-1">Section: {q.section_covered}</p>
+                      <p className="text-blue-800"><strong>Explanation:</strong> <MathText text={q.explanation} /></p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
 
         <div className="flex justify-center gap-4 mt-8">
           <Link href="/" className="btn-secondary">Back to Home</Link>
@@ -277,7 +342,9 @@ export default function TestPage() {
                   <span className="text-gray-500 font-medium">Question {q.question_number}</span>
                   <span className={getDifficultyBadge(q.difficulty)}>{q.difficulty}</span>
                 </div>
-                <p className="text-gray-800 font-medium mb-4 whitespace-pre-line">{q.question}</p>
+                <p className="text-gray-800 font-medium mb-4 whitespace-pre-line">
+                  <MathText text={q.question} />
+                </p>
                 
                 <div className="space-y-2">
                   {q.options.map((option, i) => {
@@ -300,7 +367,7 @@ export default function TestPage() {
                         onClick={() => handleRetryAnswer(q.question_number, optionLetter)}
                         className={`w-full text-left p-3 rounded-lg ${styles}`}
                       >
-                        {option}
+                        <MathText text={option} />
                         {isOriginalAnswer && (
                           <span className="float-right text-red-600 text-sm">Previous answer</span>
                         )}
@@ -335,7 +402,7 @@ export default function TestPage() {
     );
   }
 
-  // Final Results Screen (after retry or if skipped retry)
+  // Final Results Screen (after retry)
   if (isSubmitted && retryScore > 0) {
     const finalScore = retryScore;
     const improvement = finalScore - score;
@@ -384,7 +451,7 @@ export default function TestPage() {
             <div className="text-center">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">🔒 View Detailed Explanations</h2>
               <p className="text-gray-600 mb-6">
-                Enter the password to see detailed explanations for all questions
+                Ask your parent for the password to see detailed explanations
               </p>
               
               <form onSubmit={handleExplanationPasswordSubmit} className="max-w-md mx-auto">
@@ -436,7 +503,9 @@ export default function TestPage() {
                         </span>
                       </div>
                     </div>
-                    <p className="text-gray-800 font-medium mb-3 whitespace-pre-line">{q.question}</p>
+                    <p className="text-gray-800 font-medium mb-3 whitespace-pre-line">
+                      <MathText text={q.question} />
+                    </p>
                     
                     <div className="space-y-2 mb-4">
                       {q.options.map((option, i) => {
@@ -456,7 +525,7 @@ export default function TestPage() {
                         
                         return (
                           <div key={i} className={`p-3 rounded-lg ${styles}`}>
-                            {option}
+                            <MathText text={option} />
                             {isCorrectAnswer && <span className="float-right text-green-600 font-medium">✓ Correct Answer</span>}
                             {isFinalAnswer && !isFinalCorrect && <span className="float-right text-red-600 font-medium">Your final answer</span>}
                             {isOriginalAnswer && retryAnswer && <span className="float-right text-red-400 text-sm">First try</span>}
@@ -467,7 +536,7 @@ export default function TestPage() {
 
                     <div className="bg-blue-50 rounded-lg p-4">
                       <p className="text-sm text-gray-500 mb-1">Section: {q.section_covered}</p>
-                      <p className="text-blue-800"><strong>Explanation:</strong> {q.explanation}</p>
+                      <p className="text-blue-800"><strong>Explanation:</strong> <MathText text={q.explanation} /></p>
                     </div>
                   </div>
                 );
@@ -486,7 +555,7 @@ export default function TestPage() {
     );
   }
 
-  // Test Taking Screen (no password required)
+  // Test Taking Screen (no password required - just need practice complete)
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* Header */}
@@ -547,7 +616,7 @@ export default function TestPage() {
               </span>
             </div>
             <p className="text-gray-800 font-medium text-lg mb-4 whitespace-pre-line">
-              {questions[currentQuestion].question}
+              <MathText text={questions[currentQuestion].question} />
             </p>
             
             <div className="space-y-2">
@@ -565,7 +634,7 @@ export default function TestPage() {
                         : 'border-gray-200 hover:border-indigo-300 bg-white'
                     }`}
                   >
-                    {option}
+                    <MathText text={option} />
                   </button>
                 );
               })}
@@ -628,7 +697,9 @@ export default function TestPage() {
                 <span className="text-gray-500 font-medium">Question {q.question_number}</span>
                 <span className={getDifficultyBadge(q.difficulty)}>{q.difficulty}</span>
               </div>
-              <p className="text-gray-800 font-medium mb-4 whitespace-pre-line">{q.question}</p>
+              <p className="text-gray-800 font-medium mb-4 whitespace-pre-line">
+                <MathText text={q.question} />
+              </p>
               
               <div className="space-y-2">
                 {q.options.map((option, i) => {
@@ -645,7 +716,7 @@ export default function TestPage() {
                           : 'border-gray-200 hover:border-indigo-300 bg-white'
                       }`}
                     >
-                      {option}
+                      <MathText text={option} />
                     </button>
                   );
                 })}
